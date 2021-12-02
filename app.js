@@ -3,7 +3,7 @@
 //모듈
 const express = require("express"); //express라는 모듈 다운
 const app = express(); //express를 실행
-
+const bodyParser = require("body-parser");
 
 //라우팅
 const home = require("./src/routes/home");
@@ -12,6 +12,9 @@ const home = require("./src/routes/home");
 app.set("views", "./src/views"); //view가 저장될 폴더 명시
 app.set("view engine", "ejs"); //ejs라는 view 엔진 사용 
 app.use(express.static(`${__dirname}/src/public`));
+app.use(bodyParser.json());
+//URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 않는 문제 해결
+app.use(bodyParser.urlencoded({extended : true}));
 
 app.use("/", home); //use -> 미들 웨어를 등록해주는 메서드
 
