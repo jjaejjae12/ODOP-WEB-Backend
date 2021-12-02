@@ -10,15 +10,24 @@ const DB = mysql.createConnection({
     database:'odop'
 });
 
+const users = {
+
+//     info : DB.query('SELECT * FROM user_info', (err, result, fields) =>{
+//             if(err){
+//                 console.log(err);
+//             }
+//             // console.log(result[0]);
+//             const ID = result[0].ID.value,
+//             PW = result[0].ID.value,
+//         })
+
+    id:["송정민", "김감자", "김채소"],
+    password: ["123","123","123456"],
+};
+
 const output = {
     home : (req, res)=>{
         res.render('home/index');
-        // DB.query('SELECT * FROM user_info', (err, result, fields) =>{
-        //     if(err){
-        //         console.log(err);
-        //     }
-        //     console.log(result);
-        // })
     },
     
 
@@ -58,7 +67,23 @@ const output = {
 
 const process = {
     login: (req,res) =>{
-        console.log(req.body);
+        const id = req.body.id,
+        password = req.body.password;
+
+        if(users.id.includes(id)){
+            const idx = users.id.indexOf(id);
+            if(users.password[idx]===password){
+                return res.json({
+                    success : true,
+                });
+            }
+        }
+
+       return res.json({
+           success : false,
+           msg:"로그인에 실패하셨습니다.",
+       });
+        
     }
 };
 
