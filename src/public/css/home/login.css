@@ -1,0 +1,208 @@
+body{
+    margin: 0px;
+}
+#start_background_img {
+    width: 100%;
+    height: 48.5vw;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(/IMG/backgorund/startBakground.jpg);
+}
+
+/* #start_background_img { 
+    text-align: center;
+    width: 100%;
+    height:100%;
+    background-image: url( "../IMG/backgorund/startBakground.jpg" );
+    background-repeat: no-repeat;
+    background-position: center center;
+} */
+
+/* main_logo_img */
+#start_main_logo {
+    width: 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#start_button_box {
+    display: flex;
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 26vw;
+    height: 2vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.start_button {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.25vw;
+    cursor:pointer;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+
+
+.main_button:hover {
+    color: rgba(188, 181, 234, 1);
+    font-size: 22px;
+}
+
+#input_bar {
+    position: absolute;
+    top:0;
+    /* border: 1px solid brown; */
+    width: 100%;
+    /* height: 48.5vw; */
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0.3;
+}
+
+#input_box {
+    position: absolute;
+    width: 33vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+}
+
+
+
+
+#start_sub_logo {
+    width: 18vh;
+    margin-top: 1.3vw;
+    margin-bottom: 4vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.login_class {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+
+.start_lj_input {
+    width: 23vw;
+    height: 2vw;
+    font-size: 20px;
+    margin: 0 50%;
+    transform: translate(-50%,0);
+    border: none;
+    border-bottom: 3px solid rgba(188, 181, 234, 1);    
+    cursor:pointer;
+}
+
+
+#login_sunbmit {
+    margin: 0 50%;
+    margin-top: 0.6vw;
+    margin-bottom: 8vw;
+    transform: translate(-50%,0);  
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1vw;
+    cursor:pointer;
+    
+}
+
+
+.login_class label {
+    position: absolute;
+    left: 5vw;
+    bottom: 1vw;
+    font-size: 0.8vw;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/*focus:,valid*/
+.login_class input:focus + label,
+.login_class input:valid + label{
+    color: rgba(255, 255, 255, 0);
+}
+
+.login_class input:focus {
+    width: 25vw;
+    height: 3vw;
+    outline: none;
+}
+
+.login_class input {
+    transition: 0.3s;
+}
+
+#start_sub_joinlogo {
+    width: 18vh;
+    margin-top: 1.3vw;
+    margin-bottom: 1.5vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+
+.join_class {
+    margin-bottom: 10px;
+    position: relative;
+    
+}
+
+#join_sunbmit {
+    margin: 0 50%;
+    margin-top: 1vw;
+    margin-bottom: 4vw;
+    transform: translate(-50%,0);  
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1vw;
+    cursor:pointer;
+}
+
+
+.join_class label {
+    position: absolute;
+    left: 5vw;
+    bottom: 1vw;
+    font-size: 0.8vw;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/*focus:,valid*/
+.join_class input:focus + label,
+.join_class input:valid + label{
+    color: rgba(255, 255, 255, 0);
+}
+
+.join_class input:focus {
+    width: 25vw;
+    height: 3vw;
+    outline: none;
+}
+
+.join_class input {
+    transition: 0.3s;
+}
+
+
+#join_overlap {
+    position: absolute;
+    left: 24vw;
+    cursor: pointer;
+}
+
+@media (max-width:360px) {
+    #login_bt {
+        background-color: chocolate;
+    }
+}

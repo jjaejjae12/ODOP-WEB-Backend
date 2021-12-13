@@ -1,28 +1,18 @@
 "use strict";
 
-const { everySeries } = require("async");
+const async = require("async");
 //mysql
-const mysql = require("mysql");
-const DB = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'thdtkfl',
-    database:'odop'
-});
+// const mysql = require("mysql");
+// const DB = mysql.createConnection({
+//     host:'localhost',
+//     user:'root',
+//     password:'thdtkfl',
+//     database:'odop'
+// });
 
 const users = {
-
-//     info : DB.query('SELECT * FROM user_info', (err, result, fields) =>{
-//             if(err){
-//                 console.log(err);
-//             }
-//             // console.log(result[0]);
-//             const ID = result[0].ID.value,
-//             PW = result[0].ID.value,
-//         })
-
-    id:["송정민", "김감자", "김채소"],
-    password: ["123","123","123456"],
+    id:['송정민', '김감자', '김채소'],
+    psword: ['123','123','123456'],
 };
 
 const output = {
@@ -67,23 +57,26 @@ const output = {
 
 const process = {
     login: (req,res) =>{
-        const id = req.body.id,
-        password = req.body.password;
+        const id = req.body.id;
+        const psword = req.body.pw;
+
+        console.log(id+" "+psword);
 
         if(users.id.includes(id)){
             const idx = users.id.indexOf(id);
-            if(users.password[idx]===password){
+            if(users.psword[idx]===psword){
                 return res.json({
                     success : true,
+                    msg: "성공",
                 });
             }
         }
 
-       return res.json({
-           success : false,
-           msg:"로그인에 실패하셨습니다.",
-       });
-        
+        return res.json({
+            success : false,
+            msg:"로그인에 실패하셨습니다.",
+        });  
+
     }
 };
 

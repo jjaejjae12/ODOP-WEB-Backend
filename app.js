@@ -4,6 +4,7 @@
 const express = require("express"); //express라는 모듈 다운
 const app = express(); //express를 실행
 const bodyParser = require("body-parser");
+const session = require('express-session')
 
 //라우팅
 const home = require("./src/routes/home");
