@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/home/login.css">
+    <script src="/js/home/login.js" defer></script>
 </head>
 
 <body>
@@ -21,16 +22,16 @@
         <div id="input_bar" style="height: 100%;"></div>
         <div id="input_box">
             <img id="start_sub_logo" src="/IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
-            <form id="inputbox_form" action="">
+            <form id="inputbox_form" action="/login" method="post">
                 <div class="login_class">
                     <input type="text" id="login_id" class="start_lj_input" autocomplete="off" required>
                     <label for="login_id">아이디</label>
                 </div>
                 <div class="login_class">
-                    <input type="login_password" id="pw" class="start_lj_input" autocomplete="off" required>
+                    <input type="login_password" id="login_pw" class="start_lj_input" autocomplete="off" required>
                     <label for="login_pw">비밀번호</label>
                 </div>
-                <input type="submit" id="login_sunbmit" value="로그인">
+                <input type="submit" id="login_submit" value="로그인">
             </form>
         </div>
     </div>

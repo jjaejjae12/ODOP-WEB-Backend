@@ -67,7 +67,7 @@ const process = {
         const id = req.body.id;
         const psword = req.body.pw;
 
-        console.log(id+" "+psword);
+        console.log("id: "+ id+" pw: "+psword);
 
         if(users.id.includes(id)){
             const idx = users.id.indexOf(id);
