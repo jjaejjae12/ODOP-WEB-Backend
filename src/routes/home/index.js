@@ -7,9 +7,10 @@ const router = express.Router();
 const ctrl = require("./home.ctrl");
 
 router.get('/', ctrl.output.home);
+router.get('/main', ctrl.output.main);
 router.get('/login', ctrl.output.login);
 router.get('/login_main', ctrl.output.login_main);
-router.get('/register', ctrl.output.register);
+router.get('/join', ctrl.output.join);
 // router.get('/profile', ctrl.output.myprofile);
 // router.get('/project', ctrl.output.project);
 // router.get('/setProfile', ctrl.output.set_profile);
@@ -17,7 +18,7 @@ router.get('/register', ctrl.output.register);
 // router.get('/upload', ctrl.output.upload);
 
 router.post('/login', ctrl.process.login);
-router.post('/register',ctrl.process.register);
+router.post('/join',ctrl.process.join);
 
 
 module.exports = router ; 

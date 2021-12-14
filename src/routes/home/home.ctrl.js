@@ -16,10 +16,15 @@ const users = {
 };
 
 const output = {
+    
     home : (req, res)=>{
         res.render('home/index');
     },
     
+    main : (req, res) =>{
+        res.render('home/main')
+    }, 
+
     login : (req,res) => {
         res.render('home/login');
     },
@@ -28,8 +33,8 @@ const output = {
         res.render('home/login_main');
     },
 
-    register : (req,res) =>{
-        res.render('home/register');
+    join : (req,res) =>{
+        res.render('home/join');
     },
 
     login_fail : (req,res)=>{
@@ -48,11 +53,6 @@ const output = {
     
     set_profile : (req,res) => {
         res.render('home/set_profile');
-    },
-    
-    
-    sign_up : (req,res) => {
-        res.render('home/sign_up');
     },
     
     upload : (req,res) => {
@@ -86,7 +86,7 @@ const process = {
 
     },
 
-    register: (req,res,next)=>{
+    join: (req,res,next)=>{
         console.log(req.body);
         res.end();
     }

@@ -9,9 +9,6 @@ const id = document.querySelector("#login_id"),
     pw = document.querySelector("#login_pw"),
     loginBtn = document.querySelector("#login_submit");
 
-console.log(id);
-console.log(pw);
-
 loginBtn.addEventListener("click", ()=>{
     const req = {
         id : id.value,
@@ -30,7 +27,7 @@ loginBtn.addEventListener("click", ()=>{
     }).then((res)=>res.json())
     .then((res)=>{
         if(res.success){
-            location.href = "/";
+            location.href = "/main";
         }else{
             alert("로그인 실패");
             location.href = "/login";
