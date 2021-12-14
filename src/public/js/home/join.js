@@ -1,11 +1,19 @@
 "use strict"
 
-const id = document.querySelector("#login_id"),
-    pw = document.querySelector("#login_pw"),
-    loginBtn = document.querySelector("#login_submit");
+const name = document.querySelector("#join_name"),
+    pet = document.querySelector("#join_pet"),
+    birth = document.querySelector("#join_birth"),
+    email = document.querySelector("#join_email"),
+    id = document.querySelector("#join_id"),
+    pw = document.querySelector("#join_pw"),
+    joinBtn = document.querySelector("#join_pw");
 
-loginBtn.addEventListener("click", ()=>{
+joinBtn.addEventListener("click", ()=>{
     const req = {
+        name : name.value,
+        pet : pet.value,
+        birth : birth.value,
+        email : email.value,
         id : id.value,
         pw : pw.value,
     };
@@ -13,7 +21,7 @@ loginBtn.addEventListener("click", ()=>{
     console.log(req);
     console.log(JSON.stringify(req));
    
-    fetch("/login", {
+    fetch("/join", {
         method: "POST",
         headers:{
             "Content-Type":"application/json"
@@ -22,10 +30,11 @@ loginBtn.addEventListener("click", ()=>{
     }).then((res)=>res.json())
     .then((res)=>{
         if(res.success){
-            location.href = "/main";
-        }else{
-            alert("로그인 실패");
+            alert("회원가입에 성공했습니다.")
             location.href = "/login";
+        }else{
+            alert("회원가입에 실패했습니다.");
+            location.href = "/join";
         }
     });
 });

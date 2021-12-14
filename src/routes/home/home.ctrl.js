@@ -2,18 +2,15 @@
 
 const async = require("async");
 //mysql
-// const mysql = require("mysql");
-// const DB = mysql.createConnection({
-//     host:'localhost',
-//     user:'root',
-//     password:'thdtkfl',
-//     database:'odop'
-// });
+const db = require("./mysql");
+
+
 
 const users = {
-    id:['송정민', '김감자', '김채소'],
-    psword: ['123','123','123456'],
+    
 };
+
+
 
 const output = {
     
@@ -87,8 +84,15 @@ const process = {
     },
 
     join: (req,res,next)=>{
-        console.log(req.body);
-        res.end();
+        const param = [req.body.name, req.body.pet, req.body.birth, req.body.email, req.body.id, req.body.pw]
+
+        db.query('INSERT INTO user_info(`name`,`pet`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?,?)', param, (err, row)=>{
+            if(err) console.log(err);
+        })
+
+        return res.json({
+            success : true,
+        });
     }
 };
 
