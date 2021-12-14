@@ -1,10 +1,6 @@
 "use strict"
 
-
-
-
-//back
-
+//login 
 const id = document.querySelector("#login_id"),
     pw = document.querySelector("#login_pw"),
     loginBtn = document.querySelector("#login_submit");
@@ -34,3 +30,5 @@ loginBtn.addEventListener("click", ()=>{
         }
     });
 });
+
+
