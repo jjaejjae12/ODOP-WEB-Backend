@@ -18,7 +18,7 @@ router.get('/join', ctrl.output.join);
 // router.get('/upload', ctrl.output.upload);
 
 router.post('/login', ctrl.process.login);
-router.post('/join',ctrl.process.join);
+router.post('/join', ctrl.process.join);
 
 
 module.exports = router ; 

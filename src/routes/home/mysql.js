@@ -9,12 +9,7 @@ const DB = mysql.createConnection({
     database:'odop'
 });
 
-DB.query('SELECT * FROM user_info', (err, result, fields) =>{
-    if(err){
-        console.log(err);
-    }
-    console.log(result);
-})
+
 
 
 module.exports = DB;

@@ -84,8 +84,10 @@ const process = {
 
     },
 
-    join: (req,res,next)=>{
+    join:(req, res)=>{
 
+        console.log(req.body);
+        
         const param = [req.body.name, req.body.birth, req.body.email, req.body.id, req.body.pw];
 
         console.log("param: "+param);
@@ -93,17 +95,10 @@ const process = {
         db.query('INSERT INTO user_info(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
             if(err) {
                 console.log(err);
-                return res.json({
-                    success : false,
-                })
+                alert("회원가입 실패");
             }
-
-            return res.json({
-                success : true,
-            });
-        })
-
-        
+            alert("회원가입 성공");
+        });
     }
 };
 
