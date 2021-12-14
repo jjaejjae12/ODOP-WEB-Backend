@@ -20,11 +20,14 @@ const output = {
         res.render('home/index');
     },
     
-
     login : (req,res) => {
         res.render('home/login');
     },
 
+    register : (req,res) =>{
+        res.render('home/register');
+    },
+    
     login_fail : (req,res)=>{
         res.render('home/login_fail');
     },
@@ -77,6 +80,11 @@ const process = {
             msg:"로그인에 실패하셨습니다.",
         });  
 
+    },
+
+    register: (req,res,next)=>{
+        console.log(req.body);
+        res.end();
     }
 };
 

@@ -16,6 +16,7 @@ DB.query('SELECT * FROM user_info', (err, result, fields) =>{
     console.log(result);
 })
 
-// module.exports = DB;
 
-DB.end();
+module.exports = DB;
+
+// DB.end();
