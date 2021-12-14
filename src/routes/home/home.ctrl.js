@@ -7,7 +7,8 @@ const db = require("./mysql");
 
 
 const users = {
-    
+    id:['송정민'],
+    pw:['123'],
 };
 
 
@@ -84,15 +85,25 @@ const process = {
     },
 
     join: (req,res,next)=>{
-        const param = [req.body.name, req.body.pet, req.body.birth, req.body.email, req.body.id, req.body.pw]
 
-        db.query('INSERT INTO user_info(`name`,`pet`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?,?)', param, (err, row)=>{
-            if(err) console.log(err);
+        const param = [req.body.name, req.body.birth, req.body.email, req.body.id, req.body.pw];
+
+        console.log("param: "+param);
+
+        db.query('INSERT INTO user_info(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
+            if(err) {
+                console.log(err);
+                return res.json({
+                    success : false,
+                })
+            }
+
+            return res.json({
+                success : true,
+            });
         })
 
-        return res.json({
-            success : true,
-        });
+        
     }
 };
 
