@@ -24,10 +24,14 @@ const output = {
         res.render('home/login');
     },
 
+    login_main : (req,res) => {
+        res.render('home/login_main');
+    },
+
     register : (req,res) =>{
         res.render('home/register');
     },
-    
+
     login_fail : (req,res)=>{
         res.render('home/login_fail');
     },
