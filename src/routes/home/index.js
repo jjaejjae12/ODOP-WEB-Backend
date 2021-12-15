@@ -5,6 +5,8 @@ const DB = require('./mysql');
 const router = express.Router();
 
 const ctrl = require("./home.ctrl");
+const app = require("../../../app");
+
 
 router.get('/', ctrl.output.home);
 router.get('/main', ctrl.output.main);

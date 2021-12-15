@@ -5,6 +5,7 @@ const db = require("./mysql");
 
 //암호화
 const bcrypt = require('bcrypt');
+const { response } = require("../../../app");
 const saltRounds = 10;
 
 const output = {
@@ -14,6 +15,9 @@ const output = {
     },
     
     main : (req, res) =>{
+        if(req.session){
+            console.log(req.session);
+        }
         res.render('home/main')
     }, 
 
@@ -58,6 +62,7 @@ const process = {
     login: (req,res) =>{
 
         const param = [req.body.id, req.body.pw];
+        console.log('event')
         db.query('SELECT * FROM user_info WHERE id=?', param[0], (err,row)=>{
 
             if(err) 
@@ -69,20 +74,20 @@ const process = {
                 bcrypt.compare(param[1], row[0].password,(error, result)=>{
                     if(result){
                         console.log("성공");
+                        req.session.id = req.body.id;
+                        req.session.isLogined = true;
+                        req.session.save(()=>{
+                            res.render('redirect',{
+                                address: "main"
+                            })
+                        })
+                        
                     }else{
                         console.log(param[1]+" "+row[0].password);
                         console.log("실패");
                         console.log(error);
                     }
-                })
-                
-                
-                // if(param[1]=== row[0].password){
-                //     console.log('성공');
-                // }else{
-                //     console.log(param[1]+" "+row[0]);
-                //     console.log('실패');
-                // }
+                })  
                 
                
             }else{
@@ -103,12 +108,7 @@ const process = {
 
         console.log("param: "+param);
 
-
-        // db.query('INSERT INTO user_info(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
-        //     if(err) {
-        //         console.log(err);
-        //     }
-        // });
+        
         bcrypt.hash(param[4], saltRounds, (error, hash)=>{
             param[4] = hash;
             db.query('INSERT INTO user_info(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
@@ -118,7 +118,7 @@ const process = {
             });
         })
         
-        
+        res.end();
     },
 
     session: (req,res)=>{

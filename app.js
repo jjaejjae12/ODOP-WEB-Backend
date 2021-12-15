@@ -6,6 +6,12 @@ const app = express(); //express를 실행
 const bodyParser = require("body-parser");
 const session = require('express-session')
 const cors = require('cors');
+// session 구문 추가 시작
+const MySQLStore = require("express-mysql-session")(session);
+const DB = require('./src/routes/home/mysql');
+const options = DB;
+var sessionStore = new MySQLStore(options);
+// session 구문 추가 끝
 //라우팅
 const home = require("./src/routes/home");
 const cookieParser = require("cookie-parser");
@@ -35,6 +41,13 @@ app.use(
         }
     })
 )
+//session 사용 설정
+app.use(session({
+    secret:"odopserver",
+    resave:false,
+    saveUninitialized:true,
+    store: sessionStore
+}))
 
 module.exports = app;
 
