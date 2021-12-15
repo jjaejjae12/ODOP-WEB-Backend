@@ -1,17 +1,11 @@
 "use strict";
 
-const async = require("async");
 //mysql
 const db = require("./mysql");
 
-
-
-const users = {
-    id:['송정민'],
-    pw:['123'],
-};
-
-
+//암호화
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const output = {
     
@@ -62,26 +56,42 @@ const output = {
 
 const process = {
     login: (req,res) =>{
-        const id = req.body.id;
-        const psword = req.body.pw;
 
-        console.log("id: "+ id+" pw: "+psword);
+        const param = [req.body.id, req.body.pw];
+        db.query('SELECT * FROM user_info WHERE id=?', param[0], (err,row)=>{
 
-        if(users.id.includes(id)){
-            const idx = users.id.indexOf(id);
-            if(users.psword[idx]===psword){
-                return res.json({
-                    success : true,
-                    msg: "성공",
-                });
+            if(err) 
+            console.log(err);
+
+            console.log(row[0].password);
+
+            if(row.length > 0){
+                // bcrypt.compare(param[1], row[0].password,(error, result)=>{
+                //     if(result){
+                //         console.log("성공");
+                //     }else{
+                //         console.log(param[1]+" "+row[0]);
+                //         console.log("실패");
+                //     }
+                // })
+                
+                
+                if(param[1]=== row[0].password){
+                    console.log('성공');
+                }else{
+                    console.log(param[1]+" "+row[0]);
+                    console.log('실패');
+                }
+                
+               
+            }else{
+                console.log("ID가 존재하지 않습니다");
             }
-        }
 
-        return res.json({
-            success : false,
-            msg:"로그인에 실패하셨습니다.",
-        });  
 
+            
+        })
+        res.end();
     },
 
     join:(req, res)=>{
@@ -92,13 +102,16 @@ const process = {
 
         console.log("param: "+param);
 
-        db.query('INSERT INTO user_info(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
-            if(err) {
-                console.log(err);
-                alert("회원가입 실패");
-            }
-            alert("회원가입 성공");
-        });
+        bcrypt.hash(param[1], saltRounds, (error, hash)=>{
+            param[1] = hash;
+            db.query('INSERT INTO user_info(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
+                if(err) {
+                    console.log(err);
+                }
+            });
+        })
+        
+        
     }
 };
 

@@ -14,21 +14,20 @@ loginBtn.addEventListener("click", ()=>{
     console.log(req);
     console.log(JSON.stringify(req));
    
-    fetch("/login", {
-        method: "POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify(req),
-    }).then((res)=>res.json())
-    .then((res)=>{
-        if(res.success){
-            location.href = "/main";
-        }else{
-            alert("로그인 실패");
-            location.href = "/login";
-        }
-    });
+    // fetch("/login", {
+    //     method: "POST",
+    //     headers:{
+    //         "Content-Type":"application/json"
+    //     },
+    //     body: JSON.stringify(req),
+    // }).then((res)=>res.json())
+    // .then((res)=>{
+    //     if(res.success){
+    //         location.href = "/main";
+    //     }else{
+    //         location.href ="/login";
+    //     }
+    // });
 });
 
 

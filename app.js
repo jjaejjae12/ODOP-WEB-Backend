@@ -8,6 +8,7 @@ const session = require('express-session')
 
 //라우팅
 const home = require("./src/routes/home");
+const cookieParser = require("cookie-parser");
 
 //앱 세팅
 app.set("views", "./src/views"); //view가 저장될 폴더 명시
@@ -18,6 +19,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
 app.use("/", home); //use -> 미들 웨어를 등록해주는 메서드
+// app.use(cors({
+//     origin : true,
+//     credentials : true
+// }))
+// app.use(cookieParser());
+// app.use(
+//     session({
+//         key:"loginData",
+//         secret: "testSecret",
+//         resave:false,
+//         saveUninitialized: false,
+//         cookie:{
+//             expires:60*60*24,
+//         }
+//     })
+// )
 
 module.exports = app;
 

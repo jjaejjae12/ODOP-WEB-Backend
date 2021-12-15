@@ -31,6 +31,24 @@ let content = `
 </div>
 
 `
+let upload_content = `
+<div id="upload_bar">
+<div id="input_box">
+    <img id="start_sub_logo" src="../IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
+    <form id="inputbox_form" action="">
+        <div class="login_class">
+            <input type="text" id="login_id" class="start_lj_input" autocomplete="off" required>
+            <label for="login_id">아이디</label>
+        </div>
+        <div class="login_class">
+            <input type="login_password" id="pw" class="start_lj_input" autocomplete="off" required>
+            <label for="login_pw">비밀번호</label>
+        </div>
+        <input type="submit" id="login_sunbmit" value="로그인">
+    </form>
+</div>
+</div>
+`
 
 init();
 
@@ -96,5 +114,20 @@ function check_tag(a) {
     }
 }
 
+const upload_up_event = document.querySelector('#upload_bt');
+const upload_down_event = document.querySelector('#input_bar');
+upload_up_event.addEventListener('click',show_up_box)
+upload_down_event.addEventListener('click',show_down_box)
 
+function show_up_box() {
+    console.log(1);
+    upload_box.innerHTML = upload_content
+    document.getElementById("input_bar").style.height = "100%";
 
+}
+
+function show_down_box() {
+    
+    document.getElementById("input_bar").style.height = "0%";
+    upload_box.innerHTML = ``;
+}

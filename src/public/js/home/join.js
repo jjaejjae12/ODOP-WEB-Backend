@@ -19,5 +19,5 @@ joinBtn.addEventListener("click", ()=>{
 
     console.log(req);
     console.log(JSON.stringify(req));
-   
+    
 });

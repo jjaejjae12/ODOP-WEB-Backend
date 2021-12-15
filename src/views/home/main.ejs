@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/CSS/mainstlye.css">
+    <link rel="stylesheet" href="/CSS/home/mainstlye.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 </head>
+
 <body>
     <div id="header">
         <div id="option">
@@ -19,7 +21,7 @@
             </div>
             <div id="logo">
                 <img src="/IMG/logoIMG/LoginLogo.png" alt="">
-            </div>            
+            </div>
         </div>
         <div id="search_box">
             <div>
@@ -33,70 +35,37 @@
         </div>
     </div>
     <div id="main">
-        <div>
-            <div>
-                <button>asas</button>
-            </div>
+        <div id="play">
         </div>
-        <div>
-            <div>
-                <div id="play">
-                    <div class="ex">
-                        <div class="show_hd">
-                            <div class="show_profile">
-                                <img src="/IMG/icon/exprofile.png" alt="">
-                            </div>
-                            <div class="show_inforamtio">
-                                <a class = "show_user_name" href="">uaerName</a>
-                                <a class = "show_uplod_day" href="">2021.11.25</a>
-                            </div>
+    </div>
+    <div id="upload_event">
+        <div id="input_bar" style="height: 0%;"></div>
+        <div id="upload_bt">
+            <button><img src="/IMG/icon/button.png" alt=""></button>
+        </div>
+        <div id="upload_box">
+            <div id="upload_bar">
+                <div id="input_box">
+                    <img id="start_sub_logo" src="/IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
+                    <form id="inputbox_form" action="">
+                        <div class="login_class">
+                            <input type="text" id="title" class="start_lj_input" autocomplete="off" required>
+                            <label for="title">제목을 입력하세요</label>
                         </div>
-                        <div class="hashtag">
-                            <div>aa</div>
+                        <div class="login_class">
+                            <textarea id="tag" class="start_lj_input" placeholder ="글쓰기" autocomplete="off" required></textarea>
                         </div>
-                        <div class="show_img">
-
+                        <div class="login_class">
+                            <input type="file" id="file" class="start_lj_input" autocomplete="off" required>
+                            <label for="file">사진가져오기</label>
                         </div>
-                    </div>
-                    <div class="ex">2</div>
-                    <div class="ex">3</div>
-                    <div class="ex">4</div>
-                    <div class="ex">5</div>
-                    <div class="ex">6</div>
-                    <div class="ex">7</div>
-                    <div class="ex">8</div>
-                    <div class="ex">9</div>
-                    <div class="ex">10</div>
-                    <div class="ex">11</div>
-                    <div class="ex">12</div>
-                    <div class="ex">1</div>
-                    <div class="ex">2</div>
-                    <div class="ex">3</div>
-                    <div class="ex">4</div>
-                    <div class="ex">5</div>
-                    <div class="ex">6</div>
-                    <div class="ex">7</div>
-                    <div class="ex">8</div>
-                    <div class="ex">9</div>
-                    <div class="ex">10</div>
-                    <div class="ex">11</div>
-                    <div class="ex">12</div>
-                    <div class="ex">1</div>
-                    <div class="ex">2</div>
-                    <div class="ex">3</div>
-                    <div class="ex">4</div>
-                    <div class="ex">5</div>
-                    <div class="ex">6</div>
-                    <div class="ex">7</div>
-                    <div class="ex">8</div>
-                    <div class="ex">9</div>
-                    <div class="ex">10</div>
-                    <div class="ex">11</div>
-                    <div class="ex">12</div>
+                        <input type="submit" id="login_sunbmit" value="로그인">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/js/home/main.js"></script>
+    <script src="/JS/home/main.js"></script>
 </body>
+
 </html>
