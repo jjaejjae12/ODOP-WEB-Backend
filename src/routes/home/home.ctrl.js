@@ -1,6 +1,6 @@
 "use strict";
 
-//mysql
+
 const db = require("./mysql");
 
 //암호화
@@ -65,23 +65,24 @@ const process = {
 
             console.log(row[0].password);
 
-            if(row.length > 0){
-                // bcrypt.compare(param[1], row[0].password,(error, result)=>{
-                //     if(result){
-                //         console.log("성공");
-                //     }else{
-                //         console.log(param[1]+" "+row[0]);
-                //         console.log("실패");
-                //     }
-                // })
+            if(row.length != undefined){
+                bcrypt.compare(param[1], row[0].password,(error, result)=>{
+                    if(result){
+                        console.log("성공");
+                    }else{
+                        console.log(param[1]+" "+row[0].password);
+                        console.log("실패");
+                        console.log(error);
+                    }
+                })
                 
                 
-                if(param[1]=== row[0].password){
-                    console.log('성공');
-                }else{
-                    console.log(param[1]+" "+row[0]);
-                    console.log('실패');
-                }
+                // if(param[1]=== row[0].password){
+                //     console.log('성공');
+                // }else{
+                //     console.log(param[1]+" "+row[0]);
+                //     console.log('실패');
+                // }
                 
                
             }else{
@@ -102,8 +103,14 @@ const process = {
 
         console.log("param: "+param);
 
-        bcrypt.hash(param[1], saltRounds, (error, hash)=>{
-            param[1] = hash;
+
+        // db.query('INSERT INTO user_info(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
+        //     if(err) {
+        //         console.log(err);
+        //     }
+        // });
+        bcrypt.hash(param[4], saltRounds, (error, hash)=>{
+            param[4] = hash;
             db.query('INSERT INTO user_info(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
                 if(err) {
                     console.log(err);
@@ -112,6 +119,14 @@ const process = {
         })
         
         
+    },
+
+    session: (req,res)=>{
+        if(req.session.loginData){
+            res.send({loggedIn : true, loginData: req.session.loginData})
+        }else{
+            res.send({loggedIn : false})
+        }
     }
 };
 
