@@ -33,14 +33,15 @@ const output = {
         res.render('home/join');
     },
 
+    profile : (req,res)=>{
+        res.render('home/profile');
+    },
+
     login_fail : (req,res)=>{
         res.render('home/login_fail');
     },
     
-    myprofile : (req,res) => {
-        res.render('home/my_profile');
-    },
-    
+
     
     project : (req,res) => {
         res.render('home/project');
