@@ -59,11 +59,13 @@ const output = {
 
 
 const process = {
+
+    //POST
     login: (req,res) =>{
 
         const param = [req.body.id, req.body.pw];
         console.log('event')
-        db.query('SELECT * FROM user_info WHERE id=?', param[0], (err,row)=>{
+        db.query('SELECT * FROM user WHERE id=?', param[0], (err,row)=>{
 
             if(err) 
             console.log(err);
@@ -74,6 +76,8 @@ const process = {
                 bcrypt.compare(param[1], row[0].password,(error, result)=>{
                     if(result){
                         console.log("성공");
+
+
                         req.session.id = req.body.id;
                         req.session.isLogined = true;
                         req.session.save(()=>{
@@ -107,18 +111,25 @@ const process = {
         const param = [req.body.name, req.body.birth, req.body.email, req.body.id, req.body.pw];
 
         console.log("param: "+param);
+        
 
         
         bcrypt.hash(param[4], saltRounds, (error, hash)=>{
             param[4] = hash;
-            db.query('INSERT INTO user_info(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
+            db.query('INSERT INTO user(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
                 if(err) {
                     console.log(err);
                 }
+
+                // res.status(200).send({message:"회원가입 성공"});
             });
         })
         
         res.end();
+    },
+
+    post:(req,res)=>{
+
     },
 
     session: (req,res)=>{

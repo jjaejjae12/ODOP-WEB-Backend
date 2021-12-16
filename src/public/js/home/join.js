@@ -8,6 +8,8 @@ const user_name = document.querySelector("#join_name"),
     pw = document.querySelector("#join_pw"),
     joinBtn = document.querySelector("#join_submit");
 
+
+    
 joinBtn.addEventListener("click", ()=>{
     const req = {
         name : user_name.value,
