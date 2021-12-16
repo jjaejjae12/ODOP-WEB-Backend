@@ -1,13 +1,7 @@
 "use strict"
 
-const user_name = document.querySelector("#join_name"),
-    pet = document.querySelector("#join_pet"),
-    birth = document.querySelector("#join_birth"),
-    email = document.querySelector("#join_email"),
-    id = document.querySelector("#join_id"),
-    pw = document.querySelector("#join_pw"),
-    joinBtn = document.querySelector("#join_submit");
-
+const joinBtn = document.querySelector("#join_submit");
+const check_id_Btn = document.querySelector('#join_overlap');
 
     
 joinBtn.addEventListener("click", ()=>{
@@ -23,3 +17,8 @@ joinBtn.addEventListener("click", ()=>{
     console.log(JSON.stringify(req));
     
 });
+
+
+check_id_Btn.addEventListener("click", ()=>{
+    
+})

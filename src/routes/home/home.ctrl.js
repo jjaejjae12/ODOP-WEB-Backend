@@ -105,6 +105,23 @@ const process = {
         res.end();
     },
 
+    check_id:(req,res)=>{
+        console.log(req.body.id);
+        const ID = req.body.id;
+        const id_check=null;
+
+        db.query('SELECT id FROM user WHERE id=?', ID, (err,row)=>{
+            if(row == undefined){
+                alert("사용 가능한 id입니다.");
+                
+            }else{
+                alert("사용할 수 없는 id입니다.");
+                id_check = false;
+            }    
+
+        })
+    },
+
     join:(req, res)=>{
 
         console.log(req.body);
@@ -122,7 +139,8 @@ const process = {
                     console.log(err);
                 }
 
-                // res.status(200).send({message:"회원가입 성공"});
+                res.status(200);
+                res.send();
             });
         })
         
