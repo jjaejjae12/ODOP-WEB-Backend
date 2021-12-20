@@ -212,3 +212,26 @@ body{
         background-color: chocolate;
     }
 }
+
+#join_overlap button {
+    /* width: 10vw; */
+    font-size: 0.8vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    border: 0px solid black;
+    border-radius: 3vw;
+    background-color: rgba(188, 181, 234, 1);
+}
+
+.start_button > a {
+    text-decoration: none;
+    color: black;
+}
+
+#login_submit:active,#join_submit:active {
+    border-left: 5px solid rgba(188, 181, 234, 1);
+    border-right: 5px solid rgba(188, 181, 234, 1);
+    border-radius: 20px;
+    background-color: rgba(188, 181, 234, 1);
+}

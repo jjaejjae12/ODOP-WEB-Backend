@@ -76,17 +76,20 @@ const process = {
             if(row.length != undefined){
                 bcrypt.compare(param[1], row[0].password,(error, result)=>{
                     if(result){
-                        console.log("성공");
+                        console.log("로그인 성공");
 
 
-                        req.session.id = req.body.id;
-                        req.session.isLogined = true;
-                        req.session.save(()=>{
-                            res.render('redirect',{
-                                address: "main"
-                            })
-                        })
+                        // req.session.id = req.body.id;
+                        // req.session.isLogined = true;
+                        // req.session.save(()=>{
+                        //     res.render('redirect',{
+                        //         address: "main"
+                        //     })
+                        // })
                         
+                        res.status(200);
+                        res.send();
+
                     }else{
                         console.log(param[1]+" "+row[0].password);
                         console.log("실패");
@@ -106,20 +109,25 @@ const process = {
     },
 
     check_id:(req,res)=>{
-        console.log(req.body.id);
-        const ID = req.body.id;
-        const id_check=null;
-
+        
+        console.log(req.body);
+        const ID = req;
+        
         db.query('SELECT id FROM user WHERE id=?', ID, (err,row)=>{
+            if(err)
+            console.log(err);
+
             if(row == undefined){
                 alert("사용 가능한 id입니다.");
-                
+                res.status(200);
+                res.send();
             }else{
                 alert("사용할 수 없는 id입니다.");
-                id_check = false;
+                
             }    
 
         })
+        res.end();
     },
 
     join:(req, res)=>{
