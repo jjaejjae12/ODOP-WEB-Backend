@@ -16,13 +16,12 @@ router.get('/join', ctrl.output.join);
 router.get('/main', ctrl.process.session);
 
 router.get('/profile', ctrl.output.profile);
-// router.get('/project', ctrl.output.project);
-// router.get('/setProfile', ctrl.output.set_profile);
-// router.get('/signUp', ctrl.output.sign_up);
+router.get('/project', ctrl.output.project);
+router.get('/set_Profile', ctrl.output.set_profile);
 // router.get('/upload', ctrl.output.upload);
 
 
-
+router.post('/set_profile', ctrl.process.set_profile)
 router.post('/login', ctrl.process.login);
 router.post('/join', ctrl.process.join);
 

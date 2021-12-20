@@ -6,20 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/CSS/home/profilestlye.css">
+    <link rel="stylesheet" href="/css/home/profilestlye.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+    <script>
+        function movePage_profile(){
+            location.href = "/set_profile";
+        }
+
+        function movePage_project(){
+            location.href = "/project";
+        }
+    </script>
 </head>
 
 <body>
     <div id="header">
         <div id="option">
             <div id="logo">
-                <img src="/IMG/logoIMG/LoginLogo.png" alt="">
+                
+                    <img src="/IMG/logoIMG/LoginLogo.png" alt="">
+                
             </div>
             <div id="profile_section">
                 <div>
-                    <a href="" style="text-decoration:underline;">나의 프로필</a>
-                    <a href="">프로젝트</a>
+                    <div onclick="">나의 프로필</div>
+                    <div onclick="movePage_project();">프로젝트</div>
                 </div>
             </div>
         </div>
@@ -51,7 +63,7 @@
                     </table>
                 </div>
             </div>
-            <button id="chang_profile_bt">수정하기<i class="fas fa-pen pencil"></i></button>
+            <button id="chang_profile_bt" onclick="movePage_profile();">수정하기<i class="fas fa-pen pencil"></i></button>
         </div>
         <div>
             <div id="main_contant">
@@ -60,21 +72,25 @@
                         <a href="">나의 게시물</a>
                     </div>
                     <div id="post_section">
-                        
+
                     </div>
                 </div>
                 <div id="bookmark" class="form">
                     <div class="ex_a">
-                        <a href="" >나의 북마크</a>
+                        <a href="">나의 북마크</a>
                     </div>
                     <div id="bookmark_section">
-                
+
                     </div>
-                </div>
                 </div>
             </div>
         </div>
-        <script src="/JS/home/profile.js"></script>
+    </div>
+    <div id="upload_event">
+        <div id="input_bar" style="height: 0%;"></div>
+        <div id="upload_box">
+        </div>
+    </div>
+    <script src="/js/home/profile.js"></script>
 </body>
-
 </html>

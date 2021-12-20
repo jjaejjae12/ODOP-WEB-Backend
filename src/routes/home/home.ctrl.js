@@ -2,10 +2,14 @@
 
 
 const db = require("./mysql");
-
+const multer = require('multer');
+const upload = multer({
+    dest: '/IMG/images/user'
+})
+const fs = require('fs');
 //암호화
 const bcrypt = require('bcrypt');
-const { response } = require("../../../app");
+
 const saltRounds = 10;
 
 const output = {
@@ -155,9 +159,51 @@ const process = {
         res.end();
     },
 
-    post:(req,res)=>{
+    set_profile:(req,res)=>{
+        console.log('set profile');
+        const id = 'ㄴㅇㄹ';
+
+        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, req.body.image];
+
+        console.log("param: "+param);
+
+        db.query(`UPDATE user SET name=?, birth=?, email=?, pet=?, image=? WHERE id=?`, [param,IdleDeadline], (err, result)=>{
+            if(err) {
+                console.log(err);
+            }
+
+            if(result){
+                console.log("성공");
+                res.status(200);
+                res.send();
+            }else{
+                console.log(param[1]+" "+row[0].password);
+                console.log("실패");
+                console.log(error);
+            }
+
+           
+        });
+
+        // fs.readFile('/set_profile/:image', function (err, data) {
+        //     var filePath = __dirname + '\\uploadFolder\\' + files.originalname;
+        //     fs.writeFile(filePath, data, function (error) {
+        //         if (error) {
+        //             throw error;
+        //         } else {
+        //             fs.unlink(files.path, function (removeFileErr) {
+        //                 if (removeFileErr) {
+        //                     throw removeFileErr;
+        //                 }
+        //             });
+        //         }
+        //     });
+        // });
 
     },
+
+
+
 
     session: (req,res)=>{
         if(req.session.loginData){

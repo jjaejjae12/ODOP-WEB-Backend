@@ -5,8 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/home/project.css">
+    <script>
+        function movePage_profile(){
+            location.href = "/profile";
+        }
+
+        function movePage_project(){
+            location.href = "/project";
+        }
+
+        function movePage_index(){
+            location.href = "/index";
+        }
+
+        function movePage_project(){
+            location.href = "/project";
+        }
+    </script>
 </head>
 <body>
-    프로젝트 설명
+    <div id="header">
+        <div id="option">
+            <div id="logo">
+                
+                    <img src="/IMG/logoIMG/LoginLogo.png" alt="">
+                
+            </div>
+            <div id="profile_section">
+                <div>
+                    <div onclick="movePage_profile();">나의 프로필</div>
+                    <div onclick="movePage_profile();" style="text-decoration:underline;">프로젝트</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="odop_project_maincontent">
+        <div id="odop_project_maincontent_title">
+            <h1>One day,One Pet</h1>
+            <h2>나의 긴 하루를 함께한 귀여운 내 펫과 함께</h2>
+        </div> 
+        <div id="odop_project_maincontent_ex">
+            <p>여러분의 오늘 하루는 어떤 사진으로 남길 수 있을까요?</p>
+            <p>나의 펫과 또 다른 이웃들의 귀여운 펫을 서로 공유해보세요.</p>
+            <p>나의 펫과 사진 한장 한장이 모여 긴 기록이 되고 시간이 흘러 </p>
+            <p>여러분이 그 기록들을 펼쳐볼 때 가장 행복하시길 바랍니다.</p>
+        </div>
+        <div id="odop_project_maincontent_img">
+            <img src="/IMG/icon/projectbgimg.png" alt="">
+        </div>
+    </section>
+    <footer>
+        <div>&copy;Copyright2021.MAT All rights reserved.</div>
+    </footer>
 </body>
 </html>

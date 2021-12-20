@@ -1,6 +1,14 @@
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration{
+    display:none;
+}
+
 body {
     margin: 0;
 }
+
 
 a {
     text-decoration: none;
@@ -11,7 +19,7 @@ a {
     justify-content: space-between;
 }
 
-#logo > img{
+#logo  > img{
     width: 7vw;
     position: relative;
     top: 2vw;
@@ -25,11 +33,17 @@ a {
     
 }
 
-#profile_section > div > a {
+
+#profile_section > div > button {
+    cursor: pointer;
     margin-left: 1vw;
     color: black;
     font-size: 1vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
 }
+
+
 
 #content {
     position: relative;
@@ -242,4 +256,116 @@ a {
     transform: translate(-50%,-50%); 
     font-size: 1.5vw;
     color: black;
+}
+
+
+#input_bar {
+    position: fixed;
+    top:0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0.3;
+}
+
+#input_box {
+    position: absolute;
+    width: 33vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+}
+
+.start_lj_input {
+    width: 23vw;
+    height: 2vw;
+    font-size: 20px;
+    margin: 0 50%;
+    transform: translate(-50%,0);
+    border: none;
+    border-bottom: 3px solid rgba(188, 181, 234, 1);    
+    cursor:pointer;
+}
+
+
+#start_sub_joinlogo {
+    width: 18vh;
+    margin-top: 1.3vw;
+    margin-bottom: 1.5vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+
+.join_class {
+    margin-bottom: 10px;
+    position: relative;
+    
+}
+
+#join_submit {
+    margin: 0 50%;
+    margin-top: 1vw;
+    margin-bottom: 4vw;
+    transform: translate(-50%,0);  
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1vw;
+    cursor:pointer;
+}
+
+#join_submit:active {
+    border-left: 5px solid rgba(188, 181, 234, 1);
+    border-right: 5px solid rgba(188, 181, 234, 1);
+    border-radius: 20px;
+    background-color: rgba(188, 181, 234, 1);
+}
+
+.join_class label {
+    position: absolute;
+    left: 5vw;
+    bottom: 1vw;
+    font-size: 0.8vw;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/*focus:,valid*/
+.join_class input:focus + label,
+.join_class input:valid + label{
+    color: rgba(255, 255, 255, 0);
+}
+
+.join_class input:focus {
+    width: 25vw;
+    height: 3vw;
+    outline: none;
+}
+
+.join_class input {
+    transition: 0.3s;
+}
+
+
+#join_overlap {
+    position: absolute;
+    left: 24vw;
+    cursor: pointer;
+}
+
+#upload_box {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+input[type=file]{
+    color:transparent;
+}
+
+form input::file-selector-button { 
+    display: none; 
 }

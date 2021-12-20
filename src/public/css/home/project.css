@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+#option {
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo  > img{
+    width: 7vw;
+    position: relative;
+    top: 2vw;
+    left: 3.8vw;
+}
+
+#profile_section {
+    position: relative;
+    top: 2.5vw;
+    right: 3vw;
+    
+}
+
+#profile_section > div > button {
+    cursor: pointer;
+    margin-left: 1vw;
+    color: black;
+    font-size: 1vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#odop_project_maincontent_title h1,h2{
+    text-align: center;
+}
+
+#odop_project_maincontent_title h1 {
+    font-size: 3.5vw;
+    margin-top: 5vw;
+}
+
+#odop_project_maincontent_title h2 {
+    font-size: 1.2vw;
+    margin-top: 5vw;
+    margin-bottom: 3vw;
+}
+
+#odop_project_maincontent_ex {
+    margin: 0;
+}
+
+#odop_project_maincontent_ex p {
+    font-size: 1vw;
+    width: 450px;
+    height: 1.8vw;
+    text-align: center;
+    margin: 0.5vw auto;
+}
+
+#odop_project_maincontent_img img {
+    /* margin-top: 10vw; */
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 55%;
+}
+
+footer div{
+    font-size: 1vw;
+    position: absolute;
+    top:46vw;
+    left: 50%;
+    transform: translate(-50%);
+}

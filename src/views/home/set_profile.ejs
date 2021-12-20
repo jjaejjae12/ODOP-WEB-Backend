@@ -1,12 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/home/profilestlye.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 </head>
+
 <body>
-    프로필 설정
+    <div id="header">
+        <div id="option">
+            <div id="logo">
+                <img src="/IMG/logoIMG/LoginLogo.png" alt="">
+            </div>
+            <div id="profile_section">
+                <div>
+                    <button style="border-bottom: 2px solid black;">나의 프로필</button>
+                    <button>프로젝트</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div id="profile">
+            <div id="profile_content">
+                <div id="profile_img_box">
+                    <img src="/IMG/icon/exprofile.png" alt="">
+                </div>
+                <div id="user_information">
+                    <table>
+                        <tr>
+                            <td>이름</td>
+                            <td>오디오피</td>
+                        </tr>
+                        <tr>
+                            <td>생년월일</td>
+                            <td>2021.11.25</td>
+                        </tr>
+                        <tr>
+                            <td>이메일</td>
+                            <td>ODOPOD@OPODOP</td>
+                        </tr>
+                        <tr>
+                            <td>반려동물</td>
+                            <td>고양이 - 오오디디- 3살</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <button id="chang_profile_bt">수정하기<i class="fas fa-pen pencil"></i></button>
+        </div>
+        <div>
+            <div id="main_contant">
+                <div id="post" class="form">
+                    <div class="ex_a">
+                        <a href="">나의 게시물</a>
+                    </div>
+                    <div id="post_section">
+
+                    </div>
+                </div>
+                <div id="bookmark" class="form">
+                    <div class="ex_a">
+                        <a href="">나의 북마크</a>
+                    </div>
+                    <div id="bookmark_section">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="upload_event">
+        <div id="input_bar" style="height: 100%;"></div>
+        <div id="upload_box">
+            <div id="upload_bar">
+                <div id="input_box">
+                    <img id="start_sub_joinlogo" src="/IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
+                    <form id="inputbox_form" action="/set_profile" method="post">
+                        <div class="join_class">
+                            <input type="text" name="name" id="join_name" class="start_lj_input" autocomplete="off" required>
+                            <label for="join_name">이름</label>
+                        </div>
+                        <div class="join_class">
+                            <input type="text" name="birth" id="join_birth" class="start_lj_input" autocomplete="off" required>
+                            <label for="join_birth">생년월일</label>
+                        </div>
+                        <div class="join_class">
+                            <input type="text" name="email" id="join_email" class="start_lj_input" autocomplete="off" required>
+                            <label for="join_email">이메일</label>
+                        </div>
+                        <div class="join_class">
+                            <input type="text" name="pet" id="join_pet" class="start_lj_input" autocomplete="off" required>
+                            <label for="join_pet">반려동물</label>
+                            
+                        </div>
+                        <div class="join_class">
+                            <input type="file" name="image" id="join_profile" class="start_lj_input" autocomplete="off" required>
+                            <label for="join_profile">프로필 사진</label>
+                            <label id="join_overlap" for="join_id">가져오기</label>
+                        </div>
+                        <input type="submit" id="join_submit" value="수정완료">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/home/profile.js"></script>
 </body>
 </html>
