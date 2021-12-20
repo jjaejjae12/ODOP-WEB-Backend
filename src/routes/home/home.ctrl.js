@@ -3,9 +3,18 @@
 
 const db = require("./mysql");
 const multer = require('multer');
-const upload = multer({
-    dest: '/IMG/images/user'
-})
+const path = require("path");
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "public/images/");
+    },
+    filename: function (req, file, cb) {
+      const ext = path.extname(file.originalname);
+      cb(null, path.basename(file.originalname, ext) + "-" + Date.now() + ext);
+    },
+  });
+  
+var upload = multer({ storage: storage });
 const fs = require('fs');
 //암호화
 const bcrypt = require('bcrypt');
@@ -161,7 +170,7 @@ const process = {
 
     set_profile:(req,res)=>{
         console.log('set profile');
-        const id = 'ㄴㅇㄹ';
+        const id = 'test';
 
         const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, req.body.image];
 
@@ -185,21 +194,7 @@ const process = {
            
         });
 
-        // fs.readFile('/set_profile/:image', function (err, data) {
-        //     var filePath = __dirname + '\\uploadFolder\\' + files.originalname;
-        //     fs.writeFile(filePath, data, function (error) {
-        //         if (error) {
-        //             throw error;
-        //         } else {
-        //             fs.unlink(files.path, function (removeFileErr) {
-        //                 if (removeFileErr) {
-        //                     throw removeFileErr;
-        //                 }
-        //             });
-        //         }
-        //     });
-        // });
-
+        
     },
 
 
