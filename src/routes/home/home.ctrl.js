@@ -34,6 +34,10 @@ const output = {
         res.render('home/main')
     }, 
 
+    main_upload : (req, res)=>{
+        res.render('home/main_upload');
+    },
+
     login : (req,res) => {
         res.render('home/login');
     },
@@ -176,15 +180,22 @@ const process = {
 
         console.log("param: "+param);
 
-        db.query(`UPDATE user SET name=?, birth=?, email=?, pet=?, image=? WHERE id=?`, [param,IdleDeadline], (err, result)=>{
+        db.query(`UPDATE user SET name=?, birth=?, email=?, pet=?, image=? WHERE id='${id}'`, param, (err, result)=>{
             if(err) {
                 console.log(err);
             }
 
             if(result){
-                console.log("성공");
+                console.log("프로필 설정 성공");
                 res.status(200);
                 res.send();
+
+                // req.session.save(()=>{
+                //     res.render('redirect',{
+                //         address: "profile"
+                //     })
+                // })
+                // 이거맞나..
             }else{
                 console.log(param[1]+" "+row[0].password);
                 console.log("실패");
@@ -194,7 +205,7 @@ const process = {
            
         });
 
-        
+        res.end();
     },
 
 
@@ -206,10 +217,15 @@ const process = {
         }else{
             res.send({loggedIn : false})
         }
-    }
+    },
+
+
+    //GET
+
+    
 };
 
 module.exports = {
     output,
     process,
-};
+}; 

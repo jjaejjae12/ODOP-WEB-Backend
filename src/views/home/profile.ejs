@@ -11,11 +11,18 @@
 
     <script>
         function movePage_profile(){
+            location.href = "/profile";
+        }
+
+        function movePage_set_profile(){
             location.href = "/set_profile";
         }
 
         function movePage_project(){
             location.href = "/project";
+        }
+        function movePage_main(){
+            location.href = "/main";
         }
     </script>
 </head>
@@ -25,12 +32,12 @@
         <div id="option">
             <div id="logo">
                 
-                    <img src="/IMG/logoIMG/LoginLogo.png" alt="">
+                    <img src="/IMG/logoIMG/LoginLogo.png" alt="" onclick="movePage_main()">
                 
             </div>
             <div id="profile_section">
                 <div>
-                    <div onclick="">나의 프로필</div>
+                    <div onclick="movePage_profile()">나의 프로필</div>
                     <div onclick="movePage_project();">프로젝트</div>
                 </div>
             </div>
@@ -40,7 +47,7 @@
         <div id="profile">
             <div id="profile_content">
                 <div id="profile_img_box">
-                    <img src="/IMG/icon/exprofile.png" alt="">
+                    <img src="/IMG/icon/exprofile.png" alt="" onclick="movePage_main()">
                 </div>
                 <div id="user_information">
                     <table>
@@ -63,7 +70,7 @@
                     </table>
                 </div>
             </div>
-            <button id="chang_profile_bt" onclick="movePage_profile();">수정하기<i class="fas fa-pen pencil"></i></button>
+            <button id="chang_profile_bt" onclick="movePage_set_profile();">수정하기<i class="fas fa-pen pencil"></i></button>
         </div>
         <div>
             <div id="main_contant">

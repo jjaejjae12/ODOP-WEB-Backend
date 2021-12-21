@@ -3,7 +3,7 @@ let content = `
     <div class="dd">
         <div class="show_hd">
             <div class="show_profile">
-                <img src="/IMG/icon/exprofile.png" alt="">
+                <img src="../IMG/icon/exprofile.png" alt="">
             </div>
             <div class="show_inforamtio">
                 <a class="show_user_name" href="">userName</a>
@@ -25,33 +25,33 @@ let content = `
                 <i class="far fa-heart icon_love love_on"></i>
                 <i class="fas fa-tag icon_tag tag_on"></i>
             </div>
-            <img src="/IMG/icon/expetimg.jp" alt="">
+            <img src="../IMG/icon/expetimg.jp" alt="">
         </div>
     </div>
 </div>
 `
 
-let upload_content = `
-<div id="upload_bar">
-                <div id="input_box">
-                    <img id="upload_logo" src="/IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
-                    <form id="inputbox_form" action="">
-                        <div class="upload_class">
-                            <input type="text" id="title" class="upload_input" autocomplete="off" required>
-                            <label for="title">제목을 입력하세요</label>
-                        </div>
-                        <div class="upload_class">
-                            <textarea id="tag"  placeholder ="글쓰기" class="upload_input"></textarea>
-                        </div>
-                        <div class="upload_class">
-                            <input type="file" id="file" class="upload_input" autocomplete="off" required>
-                            <label for="file">사진가져오기</label>
-                        </div>
-                        <input type="submit" id="upload_submit" value="업로드">
-                    </form>
-                </div>
-            </div>
-`
+// let upload_content = `
+// <div id="upload_bar">
+//                 <div id="input_box">
+//                     <img id="upload_logo" src="../IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
+//                     <form id="inputbox_form" action="">
+//                         <div class="upload_class">
+//                             <input type="text" id="title" class="upload_input" autocomplete="off" required>
+//                             <label for="title">제목을 입력하세요</label>
+//                         </div>
+//                         <div class="upload_class">
+//                             <textarea id="tag"  placeholder ="글쓰기" class="upload_input"></textarea>
+//                         </div>
+//                         <div class="upload_class">
+//                             <input type="file" id="file" class="upload_input" autocomplete="off" required>
+//                             <label for="file">사진가져오기</label>
+//                         </div>
+//                         <input type="submit" id="upload_submit" value="업로드">
+//                     </form>
+//                 </div>
+//             </div>
+// `
 
 init();
 
@@ -116,21 +116,21 @@ function check_tag(a) {
     }
 }
 
-const upload_up_event = document.querySelector('#upload_bt');
-const upload_down_event = document.querySelector('#input_bar');
+// const upload_up_event = document.querySelector('#upload_bt');
+// const upload_down_event = document.querySelector('#input_bar');
 
-upload_up_event.addEventListener('click',show_up_box)
-upload_down_event.addEventListener('click',show_down_box)
+// upload_up_event.addEventListener('click',show_up_box)
+// upload_down_event.addEventListener('click',show_down_box)
 
-function show_up_box() {
-    console.log(1);
-    upload_box.innerHTML = upload_content
-    document.querySelector('#input_bar').style.height = "100%";
+// function show_up_box() {
+//     console.log(1);
+//     upload_box.innerHTML = upload_content
+//     document.querySelector('#input_bar').style.height = "100%";
 
-}
+// }
 
-function show_down_box() {
+// function show_down_box() {
     
-    document.querySelector('#input_bar').style.height = "0%";
-    upload_box.innerHTML = ``;
-}
+//     document.querySelector('#input_bar').style.height = "0%";
+//     upload_box.innerHTML = ``;
+// }

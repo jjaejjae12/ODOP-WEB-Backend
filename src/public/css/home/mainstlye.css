@@ -30,7 +30,7 @@ a {
     z-index: 0;
     background-image: url(../IMG/backgorund/mainpagebackground.png);
     width:100%;
-        height: 220vw;
+    height: 220vw;
     background-position: center center;
     background-size: cover;
 }
@@ -49,11 +49,23 @@ a {
     margin-right: 3.5vw; */
 }
 
-#profile > div > a {
-    padding: 0 1vw;
+#profile > div > button {
+    cursor: pointer;
+    margin-left: 1vw;
     color: black;
-    text-decoration-line:none ;
+    font-size: 1vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
 }
+
+/* #profile > div > button {
+    margin: 0 1vw;
+    color: black;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+} */
+
+
 
 #logo {
     display: inline-block;
@@ -123,16 +135,15 @@ a {
     display: grid;
     width: 69vw;
     grid-template-columns: repeat(2, 1fr);
-    /* background-color: black; */
     grid-column-gap: 5vw;
     grid-row-gap: 2.5vw;
-    /* padding: 1vw; */
+    padding-bottom: 8vw;
 }
 
 .ex {
     margin: 0px;
     width: 32vw;
-    height: 32vw;
+    /* height: 32vw; */
     /* background-color: tomato; */
 }
 
@@ -173,17 +184,17 @@ a {
 .show_user_name {
     position: relative;
     left: 1.4vw;
-    top: 1.4vw;
-    top: 10px;
+    top: 0.65vw;
     color: black;
+    font-size: 1vw;
 }
 
 .show_uplod_day {
     position: relative;
-    left: 18px;
-    top: -6px;
+    left: 1.7vw;
+    top: -0.5vw;
     color:rgba(196, 196, 196, 1);
-    font-size: 10px;
+    font-size: 0.1vw;
 }
 
 .tag_box {
@@ -191,16 +202,9 @@ a {
     top: 0.5vw;
     left: 1vw;
     display: inline-block;
-    /* border: 1px solid black; */
 }
 
 .icon_box {
-    
-    /* background-color: slateblue; */
-    /* float: right; */
-    
-    /* display:flex;
-    justify-content: end; */
     position: absolute;
     top: 2vw;
     left: 20vw;
@@ -208,7 +212,6 @@ a {
 
 .tags {
     font-size: 0.5vw;
-    /* font-size: 10px; */
 }
 
 .icon_love {
@@ -236,7 +239,7 @@ a {
 .show_img {
     position: relative;
     top: 14px;
-    background-color: slateblue;
+    background-color: rgb(165, 165, 165);
     width: 25vw;
     height: 25vw;
 }
@@ -250,6 +253,11 @@ a {
     position: relative;
     top: 0;
     left: 10;
+}
+
+#upload_bt > button > img{
+    width: 4vw;
+    cursor: pointer;
 }
 
 #upload_box {
@@ -283,12 +291,12 @@ a {
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    width: 33vw;
+    width: 35vw;
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
 }
 
-#start_sub_logo {
+#upload_logo {
     width: 18vh;
     margin-top: 1.3vw;
     margin-bottom: 4vw;
@@ -297,70 +305,103 @@ a {
     transform: translate(-50%,0);
 }
 
-.login_class {
+.upload_class {
     margin-bottom: 20px;
     position: relative;
     left: 50%;
 }
 
 #title {
+    border: none;
     height: 2vw;
+    border-bottom: 0.3vw solid rgba(188, 181, 234, 1);
 }
 
-#tag {
+/* #tag {
     height: 6vw;
+    border: 0.3vw solid rgba(188, 181, 234, 1);    
+    resize: none;
+    transition: 0.3s;
+    font-size: 1.2vw;
+    font-weight:900;
+    
 }
+#tag::placeholder {
+    font-weight:100;
+    color: black;
+    font-size: 1vw;
+    padding: 0.3vw;
+    
+}
+#tag:focus {
+    width: 25vw;
+    height: 8vw;
+    outline: none;
+} */
 
 #file {
     height: 10vw;
-    
+    border: 0.3vw solid rgba(188, 181, 234, 1);    
 }
 
-form input::file-selector-button { display: none; }
+#file label {
+    position: absolute;
+    bottom: 10vw;
+    font-size: 0.8vw;
+}
 
+input[type=file]{
+    color:transparent;
+}
 
+form input::file-selector-button { 
+    display: none; 
+}
 
-.start_lj_input {
+.upload_input {
     width: 23vw;
-    font-size: 20px;
+    font-size: 1.2vw;
     transform: translate(-50%,0);
-    border: 3px solid rgba(188, 181, 234, 1);    
     cursor:pointer;
 }
 
-.login_class label {
+.upload_class label {
     position: absolute;
     left: -11vw;
-    bottom: 1vw;
+    top: 0.6vw;
     font-size: 0.8vw;
     background-color: rgba(255, 255, 255, 0);
 }
 
 /*focus:,valid*/
-.login_class input:focus + label,
-.login_class input:valid + label{
+.upload_class input:focus + label,
+.upload_class input:valid + label{
     color: rgba(255, 255, 255, 0);
 }
 
-.login_class input:focus {
+.upload_class input:focus {
     width: 25vw;
     outline: none;
 }
 
-.login_class input {
+.upload_class input {
     transition: 0.3s;
 }
 
-#login_submit {
+#upload_submit {
     margin: 0 50%;
     margin-top: 0.6vw;
-    margin-bottom: 8vw;
+    margin-bottom: 3vw;
     transform: translate(-50%,0);  
     border: none;
     background-color: rgba(255, 255, 255, 0);
     font-size: 1vw;
     cursor:pointer;
-    
 }
 
-
+#upload_submit:active {
+    border-left: 5px solid rgba(188, 181, 234, 1);
+    border-right: 5px solid rgba(188, 181, 234, 1);
+    border-radius: 20px;
+    background-color: rgba(188, 181, 234, 1);
+}
