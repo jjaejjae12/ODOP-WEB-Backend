@@ -30,17 +30,17 @@ app.use(cors({
     credentials : true
 }))
 app.use(cookieParser());
-app.use(
-    session({
-        key:"loginData",
-        secret: "testSecret",
-        resave:false,
-        saveUninitialized: false,
-        cookie:{
-            expires:60*60*24,
-        }
-    })
-)
+// app.use(
+//     session({
+//         key:"loginData",
+//         secret: "testSecret",
+//         resave:false,
+//         saveUninitialized: false,
+//         cookie:{
+//             expires:60*60*24,
+//         }
+//     })
+// )
 //session 사용 설정
 app.use(session({
     secret:"odopserver",

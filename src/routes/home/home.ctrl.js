@@ -2,24 +2,17 @@
 
 
 const db = require("./mysql");
-const multer = require('multer');
-const path = require("path");
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, "public/images/");
-    },
-    filename: function (req, file, cb) {
-      const ext = path.extname(file.originalname);
-      cb(null, path.basename(file.originalname, ext) + "-" + Date.now() + ext);
-    },
-  });
-  
-var upload = multer({ storage: storage });
-const fs = require('fs');
+// const fs = require('fs');
+// const path = require("path");
 //암호화
 const bcrypt = require('bcrypt');
-
 const saltRounds = 10;
+
+
+//이미지 받기
+// const multer = require('multer');
+
+
 
 const output = {
     
@@ -74,7 +67,9 @@ const output = {
     }
 }
 
-
+const save_session = (req,id)=>{
+    req.session.id = id;
+}
 
 const process = {
 
@@ -95,14 +90,15 @@ const process = {
                     if(result){
                         console.log("로그인 성공");
 
-
                         // req.session.id = req.body.id;
-                        // req.session.isLogined = true;
-                        // req.session.save(()=>{
-                        //     res.render('redirect',{
-                        //         address: "main"
-                        //     })
-                        // })
+
+                        save_session(req,req.body.id);
+                        req.session.isLogined = true;
+                        req.session.save(()=>{
+                            res.render('redirect',{
+                                address: "main"
+                            })
+                        })
                         
                         res.status(200);
                         res.send();
@@ -127,7 +123,7 @@ const process = {
 
     check_id:(req,res)=>{
         
-        console.log(req.body);
+        console.log('지빈',req.body);
         const ID = req;
         
         db.query('SELECT id FROM user WHERE id=?', ID, (err,row)=>{
@@ -135,12 +131,12 @@ const process = {
             console.log(err);
 
             if(row == undefined){
-                alert("사용 가능한 id입니다.");
                 res.status(200);
-                res.send();
+                res.send('hi');
             }else{
-                alert("사용할 수 없는 id입니다.");
-                
+                res.json({
+                    message: "사용할수없는 ID입니다."
+                })                
             }    
 
         })
@@ -148,47 +144,62 @@ const process = {
     },
 
     join:(req, res)=>{
-
+        
         console.log(req.body);
         
         const param = [req.body.name, req.body.birth, req.body.email, req.body.id, req.body.pw];
 
         console.log("param: "+param);
         
+        db.query(`SELECT id FROM user WHERE id='${req.body.id}'`,(err,row)=>{
+            if(err)
+            console.log(err);
+
+            if(row === undefined){
+                bcrypt.hash(param[4], saltRounds, (error, hash)=>{
+                    param[4] = hash;
+                    db.query('INSERT INTO user(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
+                        console.log("회원가입 성공");
+                        res.status(200);
+                        res.send();
+                    });
+                })
+            }else{
+                console.log("중복된 ID");
+                res.status(400);
+                res.send();
+            }   
+        });
+        
 
         
-        bcrypt.hash(param[4], saltRounds, (error, hash)=>{
-            param[4] = hash;
-            db.query('INSERT INTO user(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
-                if(err) {
-                    console.log(err);
-                }
-
-                res.status(200);
-                res.send();
-            });
-        })
         
         res.end();
     },
 
     set_profile:(req,res)=>{
         console.log('set profile');
-        const id = 'test';
-
-        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, req.body.image];
+        const id = 'test'; //임시 유저id
+        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `../../public/images/user/${req.body.image}`];
 
         console.log("param: "+param);
-
+        console.log("image information: "+req.body.image);
         db.query(`UPDATE user SET name=?, birth=?, email=?, pet=?, image=? WHERE id='${id}'`, param, (err, result)=>{
             if(err) {
                 console.log(err);
             }
 
             if(result){
+
+                
+
+                console.log(result);
                 console.log("프로필 설정 성공");
                 res.status(200);
                 res.send();
+                
+                
+
 
                 // req.session.save(()=>{
                 //     res.render('redirect',{

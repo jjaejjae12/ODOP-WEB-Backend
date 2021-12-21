@@ -76,13 +76,13 @@ joinBtn.addEventListener("click", ()=>{
 // })
 
 console.log('asdas');
-    function id_check(){
         $('#join_overlap').click((e)=>{
+            console.log('h2',e);
             e.preventDefault();
             console.log('클릭');
             const id_value = $("input[name='join_id']").val();
     
-            $.post('/join', {id : id_value},()=>{
+            $.post('/checkid', {id : id_value},()=>{
                 DB.query('SELECT * FROM user WHERE id=?', id, (err,row)=>{
                     if(err)
                     console.log(err)
@@ -95,5 +95,4 @@ console.log('asdas');
                 })
             })
         })
-    }
         
