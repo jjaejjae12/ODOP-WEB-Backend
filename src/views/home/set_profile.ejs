@@ -80,7 +80,7 @@
             <div id="upload_bar">
                 <div id="input_box">
                     <img id="start_sub_joinlogo" src="/IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
-                    <form id="inputbox_form" action="/set_profile" method="post">
+                    <form id="inputbox_form" enctype="multipart/form-data" action="/set_profile" method="post">
                         <div class="join_class">
                             <input type="text" name="name" id="join_name" class="start_lj_input" autocomplete="off" required>
                             <label for="join_name">이름</label>
@@ -99,7 +99,7 @@
                             
                         </div>
                         <div class="join_class">
-                            <input type="file" name="image" id="join_profile" class="start_lj_input" autocomplete="off" required>
+                            <input type="file" name="image" accept="image/png" id="join_profile" class="start_lj_input" autocomplete="off" required>
                             <label for="join_profile">프로필 사진</label>
                             <label id="join_overlap" for="join_id">가져오기</label>
                         </div>

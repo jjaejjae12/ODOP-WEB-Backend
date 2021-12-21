@@ -67,9 +67,7 @@ const output = {
     }
 }
 
-const save_session = (req,id)=>{
-    req.session.id = id;
-}
+
 
 const process = {
 
@@ -90,18 +88,15 @@ const process = {
                     if(result){
                         console.log("로그인 성공");
 
-                        // req.session.id = req.body.id;
-
-                        save_session(req,req.body.id);
+                        req.session.uid = req.body.id;
                         req.session.isLogined = true;
                         req.session.save(()=>{
-                            res.render('redirect',{
+                            res.render('home/redirect',{
                                 address: "main"
-                            })
+                            });
+                            
                         })
                         
-                        res.status(200);
-                        res.send();
 
                     }else{
                         console.log(param[1]+" "+row[0].password);
@@ -118,7 +113,6 @@ const process = {
 
             
         })
-        res.end();
     },
 
     check_id:(req,res)=>{
@@ -179,11 +173,14 @@ const process = {
 
     set_profile:(req,res)=>{
         console.log('set profile');
+        console.log(req.file);
         const id = 'test'; //임시 유저id
         const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `../../public/images/user/${req.body.image}`];
 
+        console.log("이미지 타입: "+typeof(req.body.image));
+
         console.log("param: "+param);
-        console.log("image information: "+req.body.image);
+        
         db.query(`UPDATE user SET name=?, birth=?, email=?, pet=?, image=? WHERE id='${id}'`, param, (err, result)=>{
             if(err) {
                 console.log(err);
@@ -195,12 +192,8 @@ const process = {
 
                 console.log(result);
                 console.log("프로필 설정 성공");
-                res.status(200);
-                res.send();
+                res.status(200).send();
                 
-                
-
-
                 // req.session.save(()=>{
                 //     res.render('redirect',{
                 //         address: "profile"
@@ -215,7 +208,7 @@ const process = {
 
            
         });
-
+        
         res.end();
     },
 
