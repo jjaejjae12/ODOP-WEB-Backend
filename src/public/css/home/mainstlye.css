@@ -317,7 +317,7 @@ a {
     border-bottom: 0.3vw solid rgba(188, 181, 234, 1);
 }
 
-/* #tag {
+#tag {
     height: 6vw;
     border: 0.3vw solid rgba(188, 181, 234, 1);    
     resize: none;
@@ -326,6 +326,7 @@ a {
     font-weight:900;
     
 }
+
 #tag::placeholder {
     font-weight:100;
     color: black;
@@ -333,11 +334,12 @@ a {
     padding: 0.3vw;
     
 }
+
 #tag:focus {
     width: 25vw;
     height: 8vw;
     outline: none;
-} */
+}
 
 #file {
     height: 10vw;

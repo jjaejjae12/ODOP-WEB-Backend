@@ -44,6 +44,8 @@ const output = {
     },
 
     profile : (req,res)=>{
+        console.log(req);
+        console.log(req.query.id);
         res.render('home/profile');
     },
 
@@ -80,8 +82,6 @@ const process = {
 
             if(err) 
             console.log(err);
-
-            console.log(row[0].password);
 
             if(row.length != undefined){
                 bcrypt.compare(param[1], row[0].password,(error, result)=>{
@@ -149,35 +149,44 @@ const process = {
             if(err)
             console.log(err);
 
-            if(row === undefined){
+            console.log("row: "+row);
+
+            if(row.length ===  0){
                 bcrypt.hash(param[4], saltRounds, (error, hash)=>{
                     param[4] = hash;
                     db.query('INSERT INTO user(`name`,`birth`,`email`,`id`,`password`) VALUES (?,?,?,?,?)', param, (err, row)=>{
+                        if(err)
+                        console.log(err);
+
                         console.log("회원가입 성공");
                         res.status(200);
                         res.send();
+                        res.render('home/redirect',{
+                            address: "login"
+                        });
+                        res.end();
                     });
                 })
             }else{
                 console.log("중복된 ID");
                 res.status(400);
                 res.send();
+                
+                
             }   
         });
         
-
-        
-        
         res.end();
+        
+        
     },
 
     set_profile:(req,res)=>{
         console.log('set profile');
         console.log(req.file);
         const id = 'test'; //임시 유저id
-        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `../../public/images/user/${req.body.image}`];
+        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `./src/public/images/user/${Date.now()}_${req.body.image}`];
 
-        console.log("이미지 타입: "+typeof(req.body.image));
 
         console.log("param: "+param);
         
@@ -192,8 +201,8 @@ const process = {
 
                 console.log(result);
                 console.log("프로필 설정 성공");
+
                 res.status(200).send();
-                
                 // req.session.save(()=>{
                 //     res.render('redirect',{
                 //         address: "profile"
@@ -226,6 +235,29 @@ const process = {
 
     //GET
 
+    get_profile: (req,res)=>{
+        
+        console.log('h3', req.session.uid);
+        const id = req.session.uid;
+        console.log("## get request");
+        db.query('SELECT * FROM user WHERE id = ?', id, (err, result) => {
+            if(err) {
+                console.error(err);
+                res.send('error')
+            }
+            console.log(result);
+            console.log("name: " + result[0].name);
+            res.render('home/profile', {
+                name: result[0].name,
+                email: result[0].email,
+                pet: result[0].pet,
+                image: result[0].image,
+                birth: result[0].birth
+            });
+            res.end();
+        })
+ 
+    }
     
 };
 

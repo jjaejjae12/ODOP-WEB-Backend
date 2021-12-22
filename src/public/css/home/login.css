@@ -6,7 +6,7 @@ body{
     height: 48.5vw;
     background-position: center center;
     background-size: cover;
-    background-image: url(/IMG/backgorund/startBakground.jpg);
+    background-image: url(../IMG/backgorund/startBakground.jpg);
 }
 
 /* #start_background_img { 
@@ -81,7 +81,7 @@ body{
 #start_sub_logo {
     width: 18vh;
     margin-top: 1.3vw;
-    margin-bottom: 4vw;
+    margin-bottom: 6vw;
     position: relative;
     left: 50%;
     transform: translate(-50%,0);
@@ -96,7 +96,7 @@ body{
 .start_lj_input {
     width: 23vw;
     height: 2vw;
-    font-size: 20px;
+    font-size: 1.2vw;
     margin: 0 50%;
     transform: translate(-50%,0);
     border: none;
@@ -158,7 +158,6 @@ body{
     
 }
 
-
 #join_submit {
     margin: 0 50%;
     margin-top: 1vw;
@@ -195,22 +194,15 @@ body{
     transition: 0.3s;
 }
 
-
-#join_overlap {
-    position: absolute;
-    left: 24vw;
-    cursor: pointer;
-    background-color: rgba(188, 181, 234, 1);
-    padding: 3px;
-    margin-top: 2px;
-    border-radius: 4px;
-    color: white;
+#join_pet_ex {
+    color: gray;
+    margin-left:5vw;
+    font-size: 0.1vw;
 }
 
-@media (max-width:360px) {
-    #login_bt {
-        background-color: chocolate;
-    }
+#join_overlap {
+    margin-left: 19vw;
+    cursor: pointer;
 }
 
 #join_overlap button {
