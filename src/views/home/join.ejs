@@ -14,8 +14,7 @@
 <body>
     <div id="start_background_img"></div>
     <div>
-        <a href=""><img id="start_main_logo" class="logoImg" src="/IMG/logoIMG/MainLogo.png"
-                alt="logo_mian(Logo)"></a>
+        <img id="start_main_logo" class="logoImg" src="/IMG/logoIMG/MainLogo.png" alt="logo_mian(Logo)">
         <div id="start_button_box">
             <button id="login_bt" class="start_button">로그인</button>
             <button id="join_bt" class="start_button">회원가입</button>
@@ -28,14 +27,16 @@
                     <input type="text" id="join_name" name="name" class="start_lj_input" autocomplete="off" required>
                     <label for="join_name">이름</label>
                 </div>
-                <!-- <div class="join_class">
-                    <input type="text" id="join_pet" class="start_lj_input" autocomplete="off" required>
-                    <label for="join_pet">반려동물</label>
-                </div> -->
                 <div class="join_class">
-                    <input type="datetime" id="join_birth" name="birth" class="start_lj_input" autocomplete="off" required min="8" max="8">
+                    <input type="datetime" id="join_birth" name="birth" class="start_lj_input" autocomplete="off" required min="8"
+                        max="8">
                     <label for="join_birth">생일</label>
                 </div>
+                <!-- name필요 -->
+                <div class="join_class">
+                    <input type="text" id="join_pet" class="start_lj_input" autocomplete="off" required>
+                    <label for="join_pet">반려동물</label>
+                </div>            
                 <div class="join_class">
                     <input type="text" id="join_email" name="email" class="start_lj_input" autocomplete="off" required>
                     <label for="join_email">이메일</label>

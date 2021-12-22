@@ -185,7 +185,7 @@ const process = {
         console.log('set profile');
         console.log(req.file);
         const id = 'test'; //임시 유저id
-        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `./src/public/images/user/${Date.now()}_${req.body.image}`];
+        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `/src/public/images/user/${Date.now()}_${req.body.image}.png`];
 
 
         console.log("param: "+param);

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/src/public/images/user/">
     <link rel="stylesheet" href="/css/home/profilestlye.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 
@@ -30,15 +31,13 @@
 <body>
     <div id="header">
         <div id="option">
-            <div id="logo">
-                
-                    <img src="/IMG/logoIMG/LoginLogo.png" alt="" onclick="movePage_main()">
-                
+            <div id="logo">          
+                <img src="/IMG/logoIMG/LoginLogo.png" alt="" onclick="movePage_main()">
             </div>
             <div id="profile_section">
                 <div>
-                    <div onclick="movePage_profile()">나의 프로필</div>
-                    <div onclick="movePage_project();">프로젝트</div>
+                    <button onclick="movePage_profile()">나의 프로필</button>
+                    <button onclick="movePage_project();">프로젝트</button>
                 </div>
             </div>
         </div>
@@ -47,7 +46,7 @@
         <div id="profile">
             <div id="profile_content">
                 <div id="profile_img_box">
-                    <img src="/IMG/icon/exprofile.png" alt="" onclick="movePage_main()">
+                    <img src="<%= image %>" alt="">
                 </div>
                 <div id="user_information">
                     <table>
@@ -76,7 +75,7 @@
             <div id="main_contant">
                 <div id="post" class="form">
                     <div class="ex_a">
-                        <a href="">나의 게시물</a>
+                        <p>나의 게시물</p>
                     </div>
                     <div id="post_section">
 
@@ -84,7 +83,7 @@
                 </div>
                 <div id="bookmark" class="form">
                     <div class="ex_a">
-                        <a href="">나의 북마크</a>
+                        <p>나의 북마크</p>
                     </div>
                     <div id="bookmark_section">
 
