@@ -185,7 +185,7 @@ const process = {
         console.log('set profile');
         console.log(req.file);
         const id = 'test'; //임시 유저id
-        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `/src/public/images/user/${Date.now()}_${req.body.image}.png`];
+        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `/src/public/images/user/${req.body.image}.png`];
 
 
         console.log("param: "+param);
@@ -199,7 +199,7 @@ const process = {
 
                 
 
-                console.log(result);
+                console.log("result: "+result);
                 console.log("프로필 설정 성공");
 
                 res.status(200).send();
