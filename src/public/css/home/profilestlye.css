@@ -314,14 +314,19 @@ a {
     background-color: rgba(255, 255, 255, 0);
     font-size: 1vw;
     cursor:pointer;
-}
-
-#join_submit:active {
+    color: white;
     border-left: 5px solid rgba(188, 181, 234, 1);
     border-right: 5px solid rgba(188, 181, 234, 1);
     border-radius: 20px;
     background-color: rgba(188, 181, 234, 1);
 }
+
+/* #join_submit:active {
+    border-left: 5px solid rgba(188, 181, 234, 1);
+    border-right: 5px solid rgba(188, 181, 234, 1);
+    border-radius: 20px;
+    background-color: rgba(188, 181, 234, 1);
+} */
 
 .join_class label {
     position: absolute;
@@ -370,3 +375,20 @@ form input::file-selector-button {
     display: none; 
 }
 
+#get_out_button {
+    /* background-color: red; */
+    position:absolute;
+    top:2.2vw;
+    left: 27vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+}
+
+.get_out_icon {
+    font-size: 1.5vw;
+}
+
+.get_out_icon:active {
+    color: red;
+}

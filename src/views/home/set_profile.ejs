@@ -8,6 +8,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/home/profilestlye.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <script>
+        function movePage_profile(){
+            location.href = "/profile";
+        }
+    </script>
 </head>
 
 <body>
@@ -34,19 +39,19 @@
                     <table>
                         <tr>
                             <td>이름</td>
-                            <td>오디오피</td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <td>생년월일</td>
-                            <td>2021.11.25</td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <td>이메일</td>
-                            <td>ODOPOD@OPODOP</td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <td>반려동물</td>
-                            <td>고양이 - 오오디디- 3살</td>
+                            <td> </td>
                         </tr>
                     </table>
                 </div>
@@ -80,6 +85,7 @@
             <div id="upload_bar">
                 <div id="input_box">
                     <img id="start_sub_joinlogo" src="/IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
+                    <button id="get_out_button" onclick="movePage_profile()"><i class="fas fa-times get_out_icon"></i></button>  
                     <form id="inputbox_form" enctype="multipart/form-data" action="/set_profile" method="post">
                         <div class="join_class">
                             <input type="text" name="name" id="join_name" class="start_lj_input" autocomplete="off" required>

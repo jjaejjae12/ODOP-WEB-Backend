@@ -185,7 +185,7 @@ const process = {
         console.log('set profile');
         console.log(req.file);
         const id = 'test'; //임시 유저id
-        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `/src/public/images/user/${req.body.image}.png`];
+        const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `/images/user/${req.file.filename}`];
 
 
         console.log("param: "+param);
@@ -199,12 +199,12 @@ const process = {
 
                 
 
-                console.log("result: "+result);
+                
                 console.log("프로필 설정 성공");
 
                 res.status(200).send();
                 // req.session.save(()=>{
-                //     res.render('redirect',{
+                //     res.render('home/redirect',{
                 //         address: "profile"
                 //     })
                 // })
@@ -237,7 +237,7 @@ const process = {
 
     get_profile: (req,res)=>{
         
-        console.log('h3', req.session.uid);
+        console.log('uid', req.session.uid);
         const id = req.session.uid;
         console.log("## get request");
         db.query('SELECT * FROM user WHERE id = ?', id, (err, result) => {
@@ -257,6 +257,10 @@ const process = {
             res.end();
         })
  
+    },
+
+    get_post : (req,res)=>{
+
     }
     
 };

@@ -5,21 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= name %>의 프로필</title>
     <link rel="stylesheet" href="/src/public/images/user/">
     <link rel="stylesheet" href="/css/home/profilestlye.css">
-    <!-- <link rel="stylesheet" href="/src/public/images/user/">/ -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 
     <script>
         function movePage_profile(){
             location.href = "/profile";
         }
-
         function movePage_set_profile(){
             location.href = "/set_profile";
         }
-
         function movePage_project(){
             location.href = "/project";
         }
@@ -37,7 +34,7 @@
             </div>
             <div id="profile_section">
                 <div>
-                    <button onclick="movePage_profile()">나의 프로필</button>
+                    <button onclick="movePage_profile();" style="border-bottom: 2px solid black;">나의 프로필</button>
                     <button onclick="movePage_project();">프로젝트</button>
                 </div>
             </div>
@@ -79,7 +76,6 @@
                         <p>나의 게시물</p>
                     </div>
                     <div id="post_section">
-
                     </div>
                 </div>
                 <div id="bookmark" class="form">

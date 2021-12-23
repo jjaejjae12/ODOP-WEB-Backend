@@ -8,6 +8,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/home/mainstlye.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <script>
+        function movePage_main(){
+            location.href = "/main";
+        }
+    </script>
 </head>
 
 <body>
@@ -47,6 +52,7 @@
             <div id="upload_bar">
                 <div id="input_box">
                     <img id="upload_logo" src="/IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
+                    <button id="get_out_button" onclick="movePage_main()"><i class="fas fa-times get_out_icon"></i></button>                   
                     <form id="inputbox_form" action="">
                         <div class="upload_class">
                             <input type="text" id="title" class="upload_input" autocomplete="off" required>

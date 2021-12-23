@@ -28,7 +28,7 @@ a {
 #main {
     /* background-color: black; */
     z-index: 0;
-    background-image: url(../IMG/backgorund/mainpagebackground.png);
+    background-image: url(/IMG/backgorund/mainpagebackground.png);
     width:100%;
     height: 220vw;
     background-position: center center;
@@ -399,11 +399,34 @@ form input::file-selector-button {
     background-color: rgba(255, 255, 255, 0);
     font-size: 1vw;
     cursor:pointer;
-}
-
-#upload_submit:active {
+    color: white;
     border-left: 5px solid rgba(188, 181, 234, 1);
     border-right: 5px solid rgba(188, 181, 234, 1);
     border-radius: 20px;
     background-color: rgba(188, 181, 234, 1);
+}
+
+/* #upload_submit:active {
+    border-left: 5px solid rgba(188, 181, 234, 1);
+    border-right: 5px solid rgba(188, 181, 234, 1);
+    border-radius: 20px;
+    background-color: rgba(188, 181, 234, 1);
+} */
+
+#get_out_button {
+    /* background-color: red; */
+    position:absolute;
+    top:2.2vw;
+    left: 27vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+}
+
+.get_out_icon {
+    font-size: 1.5vw;
+}
+
+.get_out_icon:active {
+    color: red;
 }

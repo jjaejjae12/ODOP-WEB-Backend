@@ -114,6 +114,11 @@ body{
     background-color: rgba(255, 255, 255, 0);
     font-size: 1vw;
     cursor:pointer;
+    color: white;
+    border-left: 5px solid rgba(188, 181, 234, 1);
+    border-right: 5px solid rgba(188, 181, 234, 1);
+    border-radius: 20px;
+    background-color: rgba(188, 181, 234, 1);
     
 }
 
@@ -166,7 +171,12 @@ body{
     border: none;
     background-color: rgba(255, 255, 255, 0);
     font-size: 1vw;
+    color: white;
     cursor:pointer;
+    border-left: 5px solid rgba(188, 181, 234, 1);
+    border-right: 5px solid rgba(188, 181, 234, 1);
+    border-radius: 20px;
+    background-color: rgba(188, 181, 234, 1);
 }
 
 
@@ -221,9 +231,27 @@ body{
     color: black;
 }
 
-#login_submit:active,#join_submit:active {
+/* #login_submit:active,#join_submit:active {
     border-left: 5px solid rgba(188, 181, 234, 1);
     border-right: 5px solid rgba(188, 181, 234, 1);
     border-radius: 20px;
     background-color: rgba(188, 181, 234, 1);
+} */
+
+#get_out_button {
+    /* background-color: red; */
+    position:absolute;
+    top:2.2vw;
+    left: 27vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+}
+
+.get_out_icon {
+    font-size: 1.5vw;
+}
+
+.get_out_icon:active {
+    color: red;
 }
