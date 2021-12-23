@@ -86,6 +86,7 @@ const process = {
             if(row.length != undefined){
                 bcrypt.compare(param[1], row[0].password,(error, result)=>{
                     if(result){
+                        console.log("id", req.body.id);
                         console.log("로그인 성공");
 
                         req.session.uid = req.body.id;
@@ -137,8 +138,8 @@ const process = {
                         console.log(err);
 
                         console.log("회원가입 성공");
-                        res.status(200);
-                        res.send();
+                        res.status(200).send('OK')
+                        
                         // res.render('home/redirect',{
                         //     address: "login"
                         // });
@@ -148,11 +149,11 @@ const process = {
             }else{
                 console.log("중복된 ID");
                 res.status(400);
-                res.send();
+                res.send('FUCK');
             }   
         });
         
-        res.end();
+        
         
         
     },
@@ -268,6 +269,7 @@ const process = {
             }
             console.log("get posts:", result);
             res.render('home/main',{
+                posts : result,
                 description : result[0].description
             })
 
