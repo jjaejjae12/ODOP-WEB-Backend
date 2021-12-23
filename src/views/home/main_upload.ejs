@@ -53,16 +53,16 @@
                 <div id="input_box">
                     <img id="upload_logo" src="/IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
                     <button id="get_out_button" onclick="movePage_main()"><i class="fas fa-times get_out_icon"></i></button>                   
-                    <form id="inputbox_form" action="">
+                    <form id="inputbox_form" action="/main_upload" method="post">
                         <div class="upload_class">
-                            <input type="text" id="title" class="upload_input" autocomplete="off" required>
+                            <input type="text" id="title" name="title" class="upload_input" autocomplete="off" required>
                             <label for="title">제목을 입력하세요</label>
                         </div>
                         <div class="upload_class">
-                            <textarea id="tag" placeholder="글쓰기" class="upload_input"></textarea>
+                            <textarea id="tag" placeholder="글쓰기" name="description" class="upload_input"></textarea>
                         </div>
                         <div class="upload_class">
-                            <input type="file" id="file" class="upload_input" autocomplete="off" required>
+                            <input type="file" id="file" name="post_image" class="upload_input" autocomplete="off" required>
                             <label for="file">사진가져오기</label>
                         </div>
                         <input type="submit" id="upload_submit" value="업로드">

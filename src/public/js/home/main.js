@@ -1,9 +1,25 @@
+const { rejectSeries } = require("async");
+
+fetch('/main').then(function(respones){
+    respones.text().then(function(text){
+        alert(text);
+        console.log(text)
+    })
+})
+
+fetch('/main').then((res)=>{
+    res.text().then((res)=>{
+        alert(res);
+        console.log(res);
+    })
+})
+
 let content = `
 <div class="ex">
     <div class="dd">
         <div class="show_hd">
             <div class="show_profile">
-                <img src="../IMG/icon/exprofile.png" alt="">
+                <img src="/IMG/icon/exprofile.png" alt="">
             </div>
             <div class="show_inforamtio">
                 <a class="show_user_name" href="">userName</a>
@@ -13,10 +29,10 @@ let content = `
         <div class="hashtag">
             <div class="tag_box">
                 <div class="tags">
-                    오늘 진짜 디자인 끝낸다 오늘 진짜 디자인 끝낸다
+                    <%= title %>
                 </div>
                 <div class="tags">
-                    오늘 진짜 디자인 끝낸다 오늘 진짜 디자인 끝낸다
+                    <%= description %>
                 </div>
             </div>
         </div>
@@ -25,7 +41,7 @@ let content = `
                 <i class="far fa-heart icon_love love_on"></i>
                 <i class="fas fa-tag icon_tag tag_on"></i>
             </div>
-            <img src="../IMG/icon/expetimg.jp" alt="">
+            <img src="/IMG/icon/expetimg.jp" alt="">
         </div>
     </div>
 </div>
@@ -87,6 +103,7 @@ for (let i = 0; i < love_icon.length; i++) {
     love_icon[i].addEventListener("click", function () { check_love(i) })
 
 }
+
 
 for (let i = 0; i < tag_icon.length; i++) {
     tag_icon[i].addEventListener("click", function () { check_tag(i) })

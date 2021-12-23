@@ -115,28 +115,6 @@ const process = {
         })
     },
 
-    check_id:(req,res)=>{
-        
-        console.log('지빈',req.body);
-        const ID = req;
-        
-        db.query('SELECT id FROM user WHERE id=?', ID, (err,row)=>{
-            if(err)
-            console.log(err);
-
-            if(row == undefined){
-                res.status(200);
-                res.send('hi');
-            }else{
-                res.json({
-                    message: "사용할수없는 ID입니다."
-                })                
-            }    
-
-        })
-        res.end();
-    },
-
     join:(req, res)=>{
         
         console.log(req.body);
@@ -161,18 +139,16 @@ const process = {
                         console.log("회원가입 성공");
                         res.status(200);
                         res.send();
-                        res.render('home/redirect',{
-                            address: "login"
-                        });
-                        res.end();
+                        // res.render('home/redirect',{
+                        //     address: "login"
+                        // });
+                        // res.end();
                     });
                 })
             }else{
                 console.log("중복된 ID");
                 res.status(400);
                 res.send();
-                
-                
             }   
         });
         
@@ -184,9 +160,8 @@ const process = {
     set_profile:(req,res)=>{
         console.log('set profile');
         console.log(req.file);
-        const id = 'test'; //임시 유저id
+        const id = req.session.uid; //임시 유저id
         const param = [req.body.name, req.body.birth, req.body.email, req.body.pet, `/images/user/${req.file.filename}`];
-
 
         console.log("param: "+param);
         
@@ -197,9 +172,6 @@ const process = {
 
             if(result){
 
-                
-
-                
                 console.log("프로필 설정 성공");
 
                 res.status(200).send();
@@ -221,7 +193,36 @@ const process = {
         res.end();
     },
 
+    post:(req,res)=>{
+        console.log('post 작성');
+        console.log('uid', req.session.uid);
+        const id = req.session.uid;
 
+        const param = [req.body.title, req.body.description, `/images/post/${id}_${req.body.post_image}`, id]
+
+        console.log("param: "+param);
+
+        db.query('INSERT INTO post(`title`, `description`, `post_image`, `id`) VALUES(?,?,?,?)', param, (err, result)=>{
+            if(err) {
+                console.log(err);
+            }
+
+            if(result){
+
+                console.log("게시물 저장 성공");
+
+                res.status(200).send();
+
+            }else{
+                console.log(param[1]+" "+row[0].password);
+                console.log("실패");
+                console.log(error);
+            }
+
+        });
+
+        res.end();
+    },
 
 
     session: (req,res)=>{
@@ -243,7 +244,7 @@ const process = {
         db.query('SELECT * FROM user WHERE id = ?', id, (err, result) => {
             if(err) {
                 console.error(err);
-                res.send('error')
+                res.send('error');
             }
             console.log(result);
             console.log("name: " + result[0].name);
@@ -260,7 +261,17 @@ const process = {
     },
 
     get_post : (req,res)=>{
+        db.query('SELECT * FROM post', (err, result) => {
+            if(err){
+                console.log(err);
+                res.send('error');
+            }
+            console.log("get posts:", result);
+            res.render('home/main',{
+                description : result[0].description
+            })
 
+        })
     }
     
 };

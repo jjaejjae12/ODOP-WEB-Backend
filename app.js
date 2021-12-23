@@ -43,17 +43,6 @@ app.use(cors({
     credentials : true
 }))
 app.use(cookieParser());
-// app.use(
-//     session({
-//         key:"loginData",
-//         secret: "testSecret",
-//         resave:false,
-//         saveUninitialized: false,
-//         cookie:{
-//             expires:60*60*24,
-//         }
-//     })
-// )
 
 
 module.exports = app;
