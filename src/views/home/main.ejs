@@ -53,6 +53,42 @@
     </div>
     <div id="main">
         <div id="play">
+            <%
+            for(var i=0; i<posts.length; i++)
+            {
+                var data = posts[i];
+            %>
+            <div class="ex">
+                <div class="dd">
+                    <div class="show_hd">
+                        <div class="show_profile">
+                            <img src="../IMG/icon/exprofile.png" alt="">
+                        </div>
+                        <div class="show_inforamtio">
+                            <a class="show_user_name" href=""><%=data.id%></a>
+                            <a class="show_uplod_day" href=""><%=data.description%></a>
+                        </div>
+                    </div>
+                    <div class="hashtag">
+                        <div class="tag_box">
+                            <div class="tags">
+                                오늘 진짜 디자인 끝낸다 오늘 진짜 디자인 끝낸다
+                            </div>
+                            <div class="tags">
+                                오늘 진짜 디자인 끝낸다 오늘 진짜 디자인 끝낸다
+                            </div>
+                        </div>
+                    </div>
+                    <div class="show_img">
+                        <div  class="icon_box">
+                            <i  onClick = "love(event)" class="far fa-heart icon_love love_on"></i>
+                            <i onClick = "hashtag(event)" class="fas fa-tag icon_tag tag_on"></i>
+                        </div>
+                        <img src="../IMG/icon/expetimg.jp" alt="">
+                    </div>
+                </div>
+            </div>
+            <%}%>
         </div>
     </div>
     <div id="upload_event">
@@ -61,11 +97,7 @@
             <button><img src="/IMG/icon/button.png" alt="" onclick="movePage_main_upload()"></button>
         </div>
         <div id="upload_box">
-            <% for(var i = 0; i< posts.length;i++){
-                console.log("i love you");
-            }
-            %>
-            <p>Js data <%=description%></p>
+                      <!-- <p>Js data <%=description%></p> -->
         </div>
     </div>
     <script src="js/home/main.js"></script>
