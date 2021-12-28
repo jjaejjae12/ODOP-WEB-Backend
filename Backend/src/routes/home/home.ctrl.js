@@ -66,6 +66,21 @@ const output = {
     
     upload : (req,res) => {
         res.render('home/upload');
+    },
+
+    logout : (req,res) =>{
+        if(req.session.uid){
+            console.log("logout");
+            req.session.destroy( (err)=>{
+                if(err){
+                    console.log('session destroy error');
+                    return;
+                }else{
+                    console.log('session destroy success');
+                    res.redirect('/');
+                }
+            })
+        }
     }
 }
 
@@ -86,10 +101,11 @@ const process = {
             if(row.length != undefined){
                 bcrypt.compare(param[1], row[0].password,(error, result)=>{
                     if(result){
-                        console.log("id", req.body.id);
+                        
                         console.log("로그인 성공");
-
+                        console.log("id", req.body.id);
                         req.session.uid = req.body.id;
+                        console.log("uid", req.session.uid);
                         req.session.isLogined = true;
                         req.session.save(()=>{
                             res.render('home/redirect',{
@@ -138,18 +154,22 @@ const process = {
                         console.log(err);
 
                         console.log("회원가입 성공");
-                        res.status(200).send('OK')
+                        res.status(200);
+                        // res.send('OK');
+                        // console.log('res.send 완료');
+                        res.redirect('/');
                         
-                        // res.render('home/redirect',{
-                        //     address: "login"
-                        // });
-                        // res.end();
+                        res.render('home/redirect',{
+                            address: "login"
+                        });
+                        res.end();
                     });
                 })
             }else{
                 console.log("중복된 ID");
                 res.status(400);
-                res.send('FUCK');
+                res.send('BAD REQUEST');
+                res.redirect('/join');
             }   
         });
         
@@ -176,12 +196,8 @@ const process = {
                 console.log("프로필 설정 성공");
 
                 res.status(200).send();
-                // req.session.save(()=>{
-                //     res.render('home/redirect',{
-                //         address: "profile"
-                //     })
-                // })
-                // 이거맞나..
+                
+                
             }else{
                 console.log(param[1]+" "+row[0].password);
                 console.log("실패");
@@ -198,8 +214,8 @@ const process = {
         console.log('post 작성');
         console.log('uid', req.session.uid);
         const id = req.session.uid;
-
-        const param = [req.body.title, req.body.description, `/images/post/${id}_${req.body.post_image}`, id]
+        console.log(req.file);
+        const param = [req.body.title, req.body.description, `/images/user/${req.file.originalname}`, id]
 
         console.log("param: "+param);
 
@@ -267,10 +283,14 @@ const process = {
                 console.log(err);
                 res.send('error');
             }
+
+
+
             console.log("get posts:", result);
             res.render('home/main',{
                 posts : result,
-                description : result[0].description
+                description : result[0].description,
+                post_image : result[0].post_image
             })
 
         })

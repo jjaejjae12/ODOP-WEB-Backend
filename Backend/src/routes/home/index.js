@@ -15,17 +15,8 @@ const storage = multer.diskStorage({
     },
 })
 
-const post_storage = multer.diskStorage({
-    destination : (req, res, cb)=>{
-        cb(null, "./src/public/images/post/");
-    },
-    filename: (req, file, cb)=>{
-        cb(null, `${file.originalname}`);
-    },
-})
 
 var upload = multer({storage});
-var post_upload = multer({post_storage});
 
 //get_router
 router.get('/', ctrl.output.home);
@@ -35,6 +26,7 @@ router.get('/login_main', ctrl.output.login_main);
 router.get('/join', ctrl.output.join);
 router.get('/project', ctrl.output.project);
 router.get('/set_Profile',  ctrl.output.set_profile);
+router.get('/logout', ctrl.output.logout);
 
 router.get('/main', ctrl.process.get_post);
 
@@ -44,7 +36,7 @@ router.post('/set_profile',upload.single('image'), ctrl.process.set_profile)
 router.post('/login', ctrl.process.login);
 router.post('/join', ctrl.process.join);
 
-router.post('/main_upload', post_upload.single('post_image'), ctrl.process.post);
+router.post('/main_upload', upload.single('post_image'), ctrl.process.post);
 
 //get
 router.get('/profile', ctrl.process.get_profile);

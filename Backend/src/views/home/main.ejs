@@ -27,7 +27,7 @@
     </script>
 </head>
 
-<<body>
+<body>
     <div id="header">
         <div id="option">
             <div id="profile">
@@ -43,7 +43,7 @@
         <div id="search_box">
             <div>
                 <form action="" style="border-bottom: 5px solid rgba(188, 181, 234, 1);">
-                    <input id="search_bar" type="search" placeholder="<%=description%>" autocomplete="off">
+                    <input id="search_bar" type="search" placeholder="무엇이 궁금하신가요?" autocomplete="off">
                     <button>
                         <img id="search_icon" src="/IMG/icon/search.png" alt="">
                     </button>
@@ -66,25 +66,26 @@
                         </div>
                         <div class="show_inforamtio">
                             <a class="show_user_name" href=""><%=data.id%></a>
-                            <a class="show_uplod_day" href=""><%=data.description%></a>
+                            <a class="show_uplod_day" href=""></a>
                         </div>
                     </div>
                     <div class="hashtag">
                         <div class="tag_box">
                             <div class="tags">
-                                오늘 진짜 디자인 끝낸다 오늘 진짜 디자인 끝낸다
+                                <%=data.title%>
                             </div>
                             <div class="tags">
-                                오늘 진짜 디자인 끝낸다 오늘 진짜 디자인 끝낸다
+                                <%=data.description%>
                             </div>
                         </div>
+                        <div></div>
                     </div>
                     <div class="show_img">
                         <div  class="icon_box">
                             <i  onClick = "love(event)" class="far fa-heart icon_love love_on"></i>
                             <i onClick = "hashtag(event)" class="fas fa-tag icon_tag tag_on"></i>
                         </div>
-                        <img src="../IMG/icon/expetimg.jp" alt="">
+                        <img src="<%=data.post_image%>" alt="">
                     </div>
                 </div>
             </div>

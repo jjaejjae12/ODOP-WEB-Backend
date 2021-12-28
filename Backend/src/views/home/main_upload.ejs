@@ -53,7 +53,7 @@
                 <div id="input_box">
                     <img id="upload_logo" src="/IMG/logoIMG/LoginLogo.png" alt="logo_main(LoginLogo)">
                     <button id="get_out_button" onclick="movePage_main()"><i class="fas fa-times get_out_icon"></i></button>                   
-                    <form id="inputbox_form" action="/main_upload" method="post">
+                    <form id="inputbox_form" enctype="multipart/form-data" action="/main_upload" method="post">
                         <div class="upload_class">
                             <input type="text" id="title" name="title" class="upload_input" autocomplete="off" required>
                             <label for="title">제목을 입력하세요</label>
